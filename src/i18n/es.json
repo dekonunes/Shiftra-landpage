@@ -37,5 +37,121 @@
       "mantener tu equipo alineado en varios idiomas?",
       "evitar empleados desconocidos y trabajos poco claros?"
     ]
+  },
+  "howItWorks": {
+    "title": "Cómo funciona Shiftra",
+    "steps": [
+      {
+        "title": "Publicar o encontrar un turno",
+        "description": "Navega turnos disponibles o publica nuevos con detalles claros"
+      },
+      {
+        "title": "Confirmar detalles + requisitos",
+        "description": "Ve requisitos como White Card, RSA y confirma participación"
+      },
+      {
+        "title": "Planificación automática",
+        "description": "Monitorea tus ganancias y estado de pago en tiempo real"
+      },
+      {
+        "title": "Generar y enviar facturas",
+        "description": "Crea facturas conformes con un clic"
+      }
+    ]
+  },
+  "features": {
+    "title": "Características poderosas para todos",
+    "workers": {
+      "title": "Para Trabajadores",
+      "items": [
+        "Encontrar y aceptar turnos",
+        "Calendario de turnos y recordatorios",
+        "Visibilidad de ganancias",
+        "Seguimiento de pagos",
+        "Generación de factura en un clic",
+        "Resumen de impuestos"
+      ]
+    },
+    "businesses": {
+      "title": "Para Empresas",
+      "items": [
+        "Publicar turnos y solicitar trabajadores",
+        "Recordatorios de turno para todo el equipo",
+        "Chat grupal del equipo",
+        "Traducción con un toque",
+        "Almacenar detalles de factura una vez",
+        "Horas y totales precisos"
+      ]
+    }
+  },
+  "benefits": {
+    "title": "Beneficios",
+    "items": [
+      {
+        "title": "Reduce tiempo de facturación en 80%",
+        "description": "Generación con un clic ahorra horas",
+        "number": "80"
+      },
+      {
+        "title": "Ahorra 5 horas/semana en admin",
+        "description": "Menos papeleo, más productividad",
+        "number": "5"
+      },
+      {
+        "title": "1 clic para facturación",
+        "description": "Facturación simplificada significa pagos más rápidos",
+        "number": "1"
+      },
+      {
+        "title": "Cero turnos perdidos",
+        "description": "Recordatorios automáticos mantienen a todos alineados",
+        "number": "0"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Precios simples y transparentes",
+    "free": {
+      "name": "Gratis",
+      "price": "$0",
+      "description": "Para individuos organizándose",
+      "badge": "Sin tarjeta de crédito requerida",
+      "cta": "Comenzar gratis",
+      "limitations": "Sin descubrimiento de trabajadores"
+    },
+    "starter": {
+      "name": "Inicial",
+      "price": "$2",
+      "period": "por trabajador contratado",
+      "description": "Para equipos pequeños con contrataciones ocasionales",
+      "cta": "Elegir Inicial"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$27",
+      "period": "por mes",
+      "description": "Para empresas ejecutando turnos a escala",
+      "cta": "Ir Pro"
+    },
+    "features": {
+      "base": "Gestión de turnos (publicar/encontrar/aceptar turnos)",
+      "calendar": "Calendario + recordatorios",
+      "hours": "Seguimiento de horas + totales",
+      "payment": "Estado de pago (pagado vs vencido)",
+      "invoice": "Generación de factura en un clic + compartir",
+      "discovery": "Descubrimiento de trabajadores",
+      "chat": "Chat de equipo",
+      "translation": "Traducción con un toque"
+    }
+  },
+  "cta": {
+    "title": "¿Listo para ejecutar turnos sin el caos?",
+    "button": "Comenzar"
+  },
+  "footer": {
+    "company": "Shiftra",
+    "contact": "support@shiftra.app",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
   }
 }

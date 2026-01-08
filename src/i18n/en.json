@@ -68,7 +68,8 @@
         "Shift calendar and reminders",
         "Earnings visibility",
         "Payment tracking",
-        "One-click invoice generation"
+        "One-click invoice generation",
+        "Tax summary"
       ]
     },
     "businesses": {
@@ -87,20 +88,24 @@
     "title": "Benefits",
     "items": [
       {
-        "title": "Save 5 hours/week on admin",
-        "description": "Less paperwork, more productivity"
+        "title": "Reduce invoicing time by 80%",
+        "description": "One-click generation saves hours",
+        "number": "80"
       },
       {
-        "title": "Reduce invoicing time by 80%",
-        "description": "One-click generation saves hours"
+        "title": "Save 5 hours/week on admin",
+        "description": "Less paperwork, more productivity",
+        "number": "5"
+      },
+      {
+        "title": "1 click invoicing",
+        "description": "Streamlined invoicing means faster payments",
+        "number": "1"
       },
       {
         "title": "Zero missed shifts",
-        "description": "Automatic reminders keep everyone aligned"
-      },
-      {
-        "title": "Get paid faster",
-        "description": "Streamlined invoicing means faster payments"
+        "description": "Automatic reminders keep everyone aligned",
+        "number": "0"
       }
     ]
   },

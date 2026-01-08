@@ -37,5 +37,121 @@
       "manter sua equipe alinhada em vários idiomas?",
       "evitar funcionários desconhecidos e trabalhos pouco claros?"
     ]
+  },
+  "howItWorks": {
+    "title": "Como funciona o Shiftra",
+    "steps": [
+      {
+        "title": "Publicar ou encontrar um turno",
+        "description": "Navegue turnos disponíveis ou publique novos com detalhes claros"
+      },
+      {
+        "title": "Confirmar detalhes + requisitos",
+        "description": "Veja requisitos como White Card, RSA e confirme participação"
+      },
+      {
+        "title": "Escala automática",
+        "description": "Monitore seus ganhos e status de pagamento em tempo real"
+      },
+      {
+        "title": "Gerar e enviar invoices",
+        "description": "Crie invoices conformes com um clique"
+      }
+    ]
+  },
+  "features": {
+    "title": "Recursos poderosos para todos",
+    "workers": {
+      "title": "Para Trabalhadores",
+      "items": [
+        "Encontrar e aceitar turnos",
+        "Calendário de turnos e lembretes",
+        "Visibilidade de ganhos",
+        "Rastreamento de pagamentos",
+        "Geração de invoice em um clique",
+        "Resumo de impostos"
+      ]
+    },
+    "businesses": {
+      "title": "Para Empresas",
+      "items": [
+        "Publicar turnos e solicitar trabalhadores",
+        "Lembretes de turno para toda equipe",
+        "Chat em grupo da equipe",
+        "Tradução com um toque",
+        "Armazenar detalhes de invoice uma vez",
+        "Horas e totais precisos"
+      ]
+    }
+  },
+  "benefits": {
+    "title": "Benefícios",
+    "items": [
+      {
+        "title": "Reduza tempo de invoicing em 80%",
+        "description": "Geração com um clique economiza horas",
+        "number": "80"
+      },
+      {
+        "title": "Economize 5 horas/semana em admin",
+        "description": "Menos papelada, mais produtividade",
+        "number": "5"
+      },
+      {
+        "title": "1 clique para invoicing",
+        "description": "Invoicing simplificado significa pagamentos mais rápidos",
+        "number": "1"
+      },
+      {
+        "title": "Zero turnos perdidos",
+        "description": "Lembretes automáticos mantêm todos alinhados",
+        "number": "0"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Preços simples e transparentes",
+    "free": {
+      "name": "Grátis",
+      "price": "$0",
+      "description": "Para indivíduos se organizando",
+      "badge": "Sem cartão de crédito necessário",
+      "cta": "Começar grátis",
+      "limitations": "Sem descoberta de trabalhadores"
+    },
+    "starter": {
+      "name": "Iniciante",
+      "price": "$2",
+      "period": "por trabalhador contratado",
+      "description": "Para pequenas equipes com contratações ocasionais",
+      "cta": "Escolher Iniciante"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$27",
+      "period": "por mês",
+      "description": "Para empresas executando turnos em escala",
+      "cta": "Ir Pro"
+    },
+    "features": {
+      "base": "Gestão de turnos (publicar/encontrar/aceitar turnos)",
+      "calendar": "Calendário + lembretes",
+      "hours": "Rastreamento de horas + totais",
+      "payment": "Status de pagamento (pago vs vencido)",
+      "invoice": "Geração de invoice em um clique + compartilhamento",
+      "discovery": "Descoberta de trabalhadores",
+      "chat": "Chat de equipe",
+      "translation": "Tradução com um toque"
+    }
+  },
+  "cta": {
+    "title": "Pronto para executar turnos sem o caos?",
+    "button": "Começar"
+  },
+  "footer": {
+    "company": "Shiftra",
+    "contact": "support@shiftra.app",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço"
   }
 }

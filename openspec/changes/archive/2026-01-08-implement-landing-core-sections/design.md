@@ -27,7 +27,7 @@ LandingPage (orchestrator)
 │   │   ├── Step Cards × 4 (with icons)
 │   │   └── useScrollAnimation hook
 │   ├── FeaturesSection (NEW - Phase 2)
-│   │   ├── FeatureCard × 5 (Workers)
+│   │   ├── FeatureCard × 6 (Workers)
 │   │   ├── FeatureCard × 5 (Businesses)
 │   │   └── useScrollAnimation hook
 │   ├── BenefitsSection (NEW - Phase 2)
