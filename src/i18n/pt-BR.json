@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "logo": "Shiftra",
+    "features": "Recursos",
+    "howItWorks": "Como funciona",
+    "forWorkers": "Para Trabalhadores",
+    "forBusinesses": "Para Empresas",
+    "pricing": "Preços",
+    "faq": "Perguntas",
+    "getStarted": "Começar",
+    "theme": {
+      "switchToLight": "Mudar para modo claro",
+      "switchToDark": "Mudar para modo escuro"
+    }
+  },
+  "hero": {
+    "prefixText": "Sem mais",
+    "phrases": [
+      "caos de grupos WhatsApp",
+      "formulários de faturas",
+      "falta de comunicação",
+      "empregadores desconhecidos"
+    ],
+    "subheadline": "Reserve turnos, rastreie horas e pagamento, e gere faturas em um clique.",
+    "primaryCta": "Criar conta",
+    "secondaryCta": "Veja como funciona",
+    "trustLine": "Feito para a Austrália"
+  },
+  "readyTo": {
+    "prefix": "Você está pronto para",
+    "phrases": [
+      "abandonar o caos de turnos no WhatsApp de vez?",
+      "gerenciar turnos sem mensagens perdidas?",
+      "manter todos os detalhes de turnos em um só lugar?",
+      "gerar faturas em um clique?",
+      "coordenar equipes sem conversas em grupo infinitas?",
+      "enviar lembretes de turnos automaticamente?",
+      "manter sua equipe alinhada em vários idiomas?",
+      "evitar empregadores desconhecidos e trabalhos pouco claros?"
+    ]
+  }
+}

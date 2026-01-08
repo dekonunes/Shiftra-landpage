@@ -1,0 +1,153 @@
+{
+  "nav": {
+    "logo": "Shiftra",
+    "features": "Features",
+    "howItWorks": "How it works",
+    "forWorkers": "For Workers",
+    "forBusinesses": "For Businesses",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "getStarted": "Get started",
+    "theme": {
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode"
+    }
+  },
+  "hero": {
+    "prefixText": "No more",
+    "phrases": [
+      "WhatsApp group chaos",
+      "invoice forms",
+      "miscommunication",
+      "unknown employers"
+    ],
+    "subheadline": "Book shifts, track hours and pay, and generate invoices in one click.",
+    "primaryCta": "Create account",
+    "secondaryCta": "See how it works",
+    "trustLine": "Made for Australia"
+  },
+  "readyTo": {
+    "prefix": "Are you ready to",
+    "phrases": [
+      "ditch WhatsApp shift chaos for good?",
+      "manage shifts without missed messages?",
+      "keep every shift detail in one place?",
+      "generate invoices in one click?",
+      "coordinate crews without endless group chats?",
+      "send shift reminders automatically?",
+      "keep your crew aligned across languages?",
+      "avoid unknown employers and unclear jobs?"
+    ]
+  },
+  "howItWorks": {
+    "title": "How Shiftra works",
+    "steps": [
+      {
+        "title": "Post or find a shift",
+        "description": "Browse available shifts or post new ones with clear details"
+      },
+      {
+        "title": "Confirm details + requirements",
+        "description": "See requirements like White Card, RSA and confirm participation"
+      },
+      {
+        "title": "Track hours and pay status",
+        "description": "Monitor your earnings and payment status in real-time"
+      },
+      {
+        "title": "Generate and send invoices",
+        "description": "Create compliant invoices with one click"
+      }
+    ]
+  },
+  "features": {
+    "title": "Powerful features for everyone",
+    "workers": {
+      "title": "For Workers",
+      "items": [
+        "Find and accept shifts",
+        "Shift calendar and reminders",
+        "Earnings visibility",
+        "Payment tracking",
+        "One-click invoice generation"
+      ]
+    },
+    "businesses": {
+      "title": "For Businesses",
+      "items": [
+        "Post shifts and request workers",
+        "Crew-wide shift reminders",
+        "Crew group chat",
+        "One-tap translation",
+        "Store invoice details once",
+        "Accurate hours and totals"
+      ]
+    }
+  },
+  "benefits": {
+    "title": "Benefits",
+    "items": [
+      {
+        "title": "Save 5 hours/week on admin",
+        "description": "Less paperwork, more productivity"
+      },
+      {
+        "title": "Reduce invoicing time by 80%",
+        "description": "One-click generation saves hours"
+      },
+      {
+        "title": "Zero missed shifts",
+        "description": "Automatic reminders keep everyone aligned"
+      },
+      {
+        "title": "Get paid faster",
+        "description": "Streamlined invoicing means faster payments"
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Simple, transparent pricing",
+    "free": {
+      "name": "Free",
+      "price": "$0",
+      "description": "For individuals getting organised",
+      "badge": "No credit card required",
+      "cta": "Get started free",
+      "limitations": "No Worker discovery"
+    },
+    "starter": {
+      "name": "Starter",
+      "price": "$2",
+      "period": "per hired worker",
+      "description": "For small crews with occasional hiring",
+      "cta": "Choose Starter"
+    },
+    "pro": {
+      "name": "Pro",
+      "price": "$27",
+      "period": "per month",
+      "description": "For businesses running shifts at scale",
+      "cta": "Go Pro"
+    },
+    "features": {
+      "base": "Shift management (post/find/accept shifts)",
+      "calendar": "Calendar + reminders",
+      "hours": "Hours tracking + totals",
+      "payment": "Payment status (paid vs overdue)",
+      "invoice": "One-click invoice generation + sharing",
+      "discovery": "Worker discovery",
+      "chat": "Crew chat",
+      "translation": "One-tap translation"
+    }
+  },
+  "cta": {
+    "title": "Ready to run shifts without the chaos?",
+    "button": "Get started"
+  },
+  "footer": {
+    "company": "Shiftra",
+    "contact": "support@shiftra.app",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
