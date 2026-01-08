@@ -6,7 +6,6 @@
     "forWorkers": "Para trabajadores",
     "forBusinesses": "Para empresas",
     "pricing": "Precios",
-    "faq": "Preguntas frecuentes",
     "getStarted": "Comenzar",
     "theme": {
       "switchToLight": "Cambiar a modo claro",
@@ -21,7 +20,7 @@
       "falta de comunicación",
       "empleados desconocidos"
     ],
-    "subheadline": "Reserva turnos, rastreia horas y pago, y genera facturas en un clic.",
+    "subheadline": "Encuentra turnos, planificación automática, y genera facturas en un clic.",
     "primaryCta": "Crear cuenta",
     "secondaryCta": "Ver cómo funciona",
     "trustLine": "Hecho para Australia"

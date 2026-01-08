@@ -84,13 +84,15 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
 ## Page Structure (Recommended Sections)
 
 1. Top navigation
+
    - Logo (Shiftra)
-   - Links: Features, How it works, For Workers, For Businesses, Pricing (optional), FAQ
+   - Links: Features, How it works, For Workers, For Businesses, Pricing (optional)
    - Language selector: EN | PT-BR | ES (internationalization)
    - Theme toggle: Light/Dark mode button
    - CTA button: Get started
 
 2. Hero section
+
    - Headline (animated): “No more {rotating phrase}”
    - Subheadline: Book shifts, track hours and pay, and generate invoices in one click.
    - Primary CTA: Create account / Get started
@@ -98,6 +100,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
    - Optional: “Made for Australia” trust line
 
    Animation requirements (type + delete loop):
+
    - Fixed prefix: “No more” (uses primary brand colour; never changes)
    - Rotating phrase: appears after “No more” and loops through the list below
    - Effect: the phrase types in with a blinking cursor, stays visible for 1.5s, then deletes, then the next phrase types
@@ -112,6 +115,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
      - Ensure screen readers get a stable heading (avoid announcing every character as it types)
 
 3. Animated prompt section (“Are you ready to…”)
+
    - Purpose: a fast, energetic “momentum” section that transitions from the hero into the rest of the page.
    - Fixed text: “Are you ready to” (never changes)
    - Animated text: the ending phrase swaps and animates from bottom → top (like the CSS example below)
@@ -126,6 +130,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
      - avoid unknown employers and unclear jobs?
 
    Implementation notes (CSS-driven, similar to provided example):
+
    - Markup suggestion:
      - Static span: “Are you ready to”
      - Animated container: `.dropping-texts` with one child `div` per phrase ending
@@ -137,12 +142,14 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
      - Keep the semantic heading stable for screen readers (avoid announcing every swap)
 
 4. Solution section (“How Shiftra works”)
+
    - Step 1: Post or find a shift
    - Step 2: Confirm details + requirements
    - Step 3: Track hours and pay status
    - Step 4: Generate and send invoices
 
    Visual placeholders (add real app images here):
+
    - Image slot A (overview): `[Screenshot: Shifts / Agenda view]`
      - Suggested file: `docs/assets/landing/agenda.png`
      - Alt text: “Agenda showing upcoming shifts and reminders”
@@ -154,9 +161,11 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
      - Alt text: “Invoice preview with totals and one-click generation”
 
 5. Features section (two columns: Workers vs Businesses)
+
    - Bullet lists from “Key Features to Highlight”
 
 6. Benefits section (outcomes)
+
    - Less admin, fewer mistakes, clearer schedules, faster invoicing, better communication
    - Concrete outcomes:
      - "Save 5 hours/week on admin"
@@ -165,6 +174,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
      - "Get paid faster with one-click invoicing"
 
 7. Pricing section
+
    - Layout: 3 pricing cards (Free, $2, $27), responsive (stack on mobile, 3-up on desktop)
    - Card names:
      - Free: “Free”
@@ -176,6 +186,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
      - Pro: $27 / month
 
    Pricing cards (copy + CTAs):
+
    - Card 1 — Free ($0)
      - Short description: For individuals getting organised.
      - Badge: "No credit card required"
@@ -196,6 +207,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
        - One-tap translation for multi-language crews
 
    Feature list structure (how to present the differences):
+
    - Base features (shown on all 3 cards with green tick):
      - Shift management (post/find/accept shifts)
      - Calendar + reminders
@@ -217,6 +229,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
        - Pro: included
 
    Scroll + ticker animation requirements:
+
    - When the pricing section enters the viewport, animate the green tick items (staggered “tick-in” + fade/slide)
    - Progressive reveal on scroll:
      - First moment: show the shared/base features (so users understand the baseline value)
@@ -226,6 +239,7 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
    - Implementation suggestion: GSAP + ScrollTrigger (pin the pricing area briefly and step through the three plans)
 
 8. Final CTA
+
    - Headline: Ready to run shifts without the chaos?
    - CTA: Get started
    - Modal/Dialog on CTA click:

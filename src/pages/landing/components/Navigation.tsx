@@ -17,7 +17,6 @@ export default function Navigation() {
     { label: t('nav.forWorkers'), href: '#workers' },
     { label: t('nav.forBusinesses'), href: '#businesses' },
     { label: t('nav.pricing'), href: '#pricing' },
-    { label: t('nav.faq'), href: '#faq' },
   ];
 
   const languages = [

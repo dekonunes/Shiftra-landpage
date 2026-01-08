@@ -6,7 +6,6 @@
     "forWorkers": "For Workers",
     "forBusinesses": "For Businesses",
     "pricing": "Pricing",
-    "faq": "FAQ",
     "getStarted": "Get started",
     "theme": {
       "switchToLight": "Switch to light mode",
@@ -21,7 +20,7 @@
       "miscommunication",
       "unknown employees"
     ],
-    "subheadline": "Book shifts, track hours and pay, and generate invoices in one click.",
+    "subheadline": "Find shifts, automatic roster, and generate invoices in one click.",
     "primaryCta": "Create account",
     "secondaryCta": "See how it works",
     "trustLine": "Made for Australia"
@@ -51,7 +50,7 @@
         "description": "See requirements like White Card, RSA and confirm participation"
       },
       {
-        "title": "Track hours and pay status",
+        "title": "Automatic roster",
         "description": "Monitor your earnings and payment status in real-time"
       },
       {

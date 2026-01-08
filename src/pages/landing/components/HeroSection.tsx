@@ -42,7 +42,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-20 bg-background">
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="max-w-7xl mx-auto text-center">
         {/* Headline with typewriter effect */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
           <span className="text-primary">{prefixText}</span>{" "}
