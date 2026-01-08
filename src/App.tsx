@@ -1,12 +1,7 @@
-import { ThemeProvider } from './contexts/ThemeContext';
-import LandingPage from './pages/landing/LandingPage';
+import LandingPage from "@/pages/landing/LandingPage";
 
 export function App() {
-  return (
-    <ThemeProvider>
-      <LandingPage />
-    </ThemeProvider>
-  );
+  return <LandingPage />;
 }
 
 export default App;

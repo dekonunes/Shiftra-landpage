@@ -3,7 +3,7 @@ import { useEffect, type RefObject } from 'react';
 interface UseTypewriterOptions {
   ref: RefObject<HTMLElement | null>;
   phrases: string[];
-  theme: 'light' | 'dark';
+  theme: 'light' | 'dark' | 'system';
   enabled: boolean;
 }
 
@@ -47,7 +47,13 @@ export function useTypewriter(options: UseTypewriterOptions): void {
       let currentCharIndex = 0;
       let isDeleting = false;
 
-      const colors = phraseColors[theme];
+      const resolvedTheme = theme === 'system'
+        ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+        : theme;
+      
+      // Ensure we have a valid key for phraseColors
+      const effectiveTheme = (resolvedTheme === 'dark' || resolvedTheme === 'light') ? resolvedTheme : 'light';
+      const colors = phraseColors[effectiveTheme];
 
       const typewriterLoop = () => {
         if (!isActive) return;
@@ -59,8 +65,25 @@ export function useTypewriter(options: UseTypewriterOptions): void {
           // Typing phase - add one character at a time
           if (currentCharIndex <= currentPhrase.length) {
             const displayText = currentPhrase.substring(0, currentCharIndex);
-            element.textContent = displayText + '|';
-            element.style.color = color;
+            const cursorColor = effectiveTheme === 'dark' ? '#ffffff' : '#000000';
+
+            // Clear existing content
+            element.textContent = '';
+
+            // Create text span for the phrase
+            const textSpan = document.createElement('span');
+            textSpan.textContent = displayText;
+            textSpan.style.color = color;
+
+            // Create cursor span
+            const cursorSpan = document.createElement('span');
+            cursorSpan.textContent = '|';
+            cursorSpan.style.color = cursorColor;
+
+            // Append both spans
+            element.appendChild(textSpan);
+            element.appendChild(cursorSpan);
+
             currentCharIndex++;
 
             if (currentCharIndex > currentPhrase.length) {
@@ -79,8 +102,25 @@ export function useTypewriter(options: UseTypewriterOptions): void {
           // Deleting phase - remove one character at a time
           if (currentCharIndex >= 0) {
             const displayText = currentPhrase.substring(0, currentCharIndex);
-            element.textContent = displayText + '|';
-            element.style.color = color;
+            const cursorColor = effectiveTheme === 'dark' ? '#ffffff' : '#000000';
+
+            // Clear existing content
+            element.textContent = '';
+
+            // Create text span for the phrase
+            const textSpan = document.createElement('span');
+            textSpan.textContent = displayText;
+            textSpan.style.color = color;
+
+            // Create cursor span
+            const cursorSpan = document.createElement('span');
+            cursorSpan.textContent = '|';
+            cursorSpan.style.color = cursorColor;
+
+            // Append both spans
+            element.appendChild(textSpan);
+            element.appendChild(cursorSpan);
+
             currentCharIndex--;
 
             if (currentCharIndex < 0) {

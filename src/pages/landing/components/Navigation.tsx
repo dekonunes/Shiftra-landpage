@@ -1,11 +1,15 @@
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../../../contexts/ThemeContext';
+import { useTheme } from '@/contexts/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
-import { cn } from '../../../lib/cn';
+import { cn } from '@/lib/cn';
 
 export default function Navigation() {
   const { t, i18n } = useTranslation();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
 
   const navLinks = [
     { label: t('nav.features'), href: '#features' },

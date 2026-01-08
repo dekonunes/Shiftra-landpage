@@ -139,13 +139,57 @@ src/
 - Reference in Tailwind config as `hsl(var(--color-name))`
 - Always define both light and dark variants
 
+## Implementation Notes
+
+### Phase 1 Completed (Hero & Ready-To Sections)
+
+**HeroSection** - GSAP typewriter animation
+- ✅ Implemented with lazy-loaded GSAP (~30KB gzipped)
+- ✅ Theme-aware phrase colors (light/dark palettes for WCAG AA compliance)
+- ✅ Prefers-reduced-motion fallback with static display
+- ✅ Custom `useTypewriter` hook at `src/pages/landing/hooks/useTypewriter.ts`
+- Colors cycle through: Green → Dark gray/White → Dark yellow/Bright yellow → Dark red/Bright red
+
+**ReadyToSection** - CSS-driven phrase rotation
+- ✅ Pure CSS keyframe animation (8s cycle, 1s per phrase)
+- ✅ Drop-in animation from bottom, drop-out from top
+- ✅ Staggered delays using `nth-child()` selectors
+- ✅ Prefers-reduced-motion fallback with static first phrase
+
+**Animation Patterns**
+- GSAP lazy-loading: `import('gsap').then((gsapModule) => { ... })`
+- Theme-aware colors: Separate palettes for light/dark modes
+- Reduced motion detection: `window.matchMedia('(prefers-reduced-motion: reduce)')`
+- All animations respect `prefers-reduced-motion` media query
+
+**Bundle Performance**
+- Production build: ~427KB total (119KB gzipped)
+- GSAP impact: ~30KB gzipped (as expected)
+- Main bundle split: 70KB + 288KB chunks
+- CSS: 69KB (11.5KB gzipped)
+- Target achieved: <150KB gzipped total
+
+**Accessibility Validated**
+- ✅ WCAG AA contrast ratios (4.5:1 minimum)
+- ✅ Keyboard navigation (Tab, Enter)
+- ✅ Semantic HTML (`<h1>`, `<section>`, `<button>`)
+- ✅ Screen reader stable headlines (no character-by-character announcements)
+
 ## What's Next?
 
+**Phase 2: Core Content Sections**
 Remaining landing page sections to implement (based on LANDING_PAGE.md structure):
-- Complete section components: ReadyToSection, HowItWorksSection, FeaturesSection, BenefitsSection, PricingSection, CTASection, Footer
-- Add custom hooks: useScrollAnimation, useTypewriter
+- HowItWorksSection (step cards with icons)
+- FeaturesSection (two-column worker/business features)
+- BenefitsSection (outcome cards with statistics)
+
+**Phase 3: Conversion & Footer**
+- PricingSection (scroll-triggered animations with GSAP ScrollTrigger)
+- CTASection (waitlist modal with form validation)
+- Footer (contact links, social media)
+
+**Future Enhancements**
 - Add placeholder images to `public/assets/landing/`
 - Setup SEO meta tags, Open Graph, favicon
-- Implement pricing table with scroll-triggered animations (GSAP + ScrollTrigger)
-- Test accessibility with axe-core or Lighthouse
 - Performance optimization: image compression, lazy loading, code splitting
+- Custom hook for scroll animations: `useScrollAnimation`

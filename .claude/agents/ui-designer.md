@@ -73,7 +73,11 @@ Status updates during work:
   "agent": "ui-designer",
   "update_type": "progress",
   "current_task": "Component design",
-  "completed_items": ["Visual exploration", "Component structure", "State variations"],
+  "completed_items": [
+    "Visual exploration",
+    "Component structure",
+    "State variations"
+  ],
   "next_steps": ["Motion design", "Documentation"]
 }
 ```
@@ -97,13 +101,34 @@ Completion message format:
 
 ### Design Token System
 
-Use Tailwind CSS semantic design tokens consistently:
+Shiftra uses Tailwind CSS 4.x with a CSS-first configuration strategy. Design tokens are defined in `src/index.css` using the `@theme` directive and CSS variables (OKLCH color space).
 
-- **Colors**: `bg-background`, `text-foreground`, `text-muted-foreground`, `bg-muted`, `bg-primary`, `text-primary-foreground`, `bg-secondary`, `text-secondary-foreground`, `bg-destructive`, `text-destructive`, `bg-accent`, `text-accent-foreground`
-- **Borders**: `border-border`, `border-input`, `rounded-lg`, `rounded-md`, `rounded-sm`
-- **Focus states**: `focus-visible:ring-2`, `focus-visible:ring-ring/50`, `focus-visible:ring-offset-2`, `focus-visible:ring-offset-background`
-- **Interactive states**: `hover:bg-muted`, `active:bg-muted/80`, `disabled:opacity-50`, `disabled:pointer-events-none`
-- **Dark mode**: `dark:bg-muted`, `dark:text-foreground`, `dark:border-input`
+**Configuration Location**: `src/index.css` (replaces `tailwind.config.js`)
+
+```css
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+@import "tw-animate-css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --primary: oklch(0.541 0.281 293.009);
+  /* ... other variables ... */
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", sans-serif;
+  --color-primary: var(--primary);
+  /* ... other mappings ... */
+}
+```
+
+**Core Tokens**:
+
+- **Colors**: `bg-background`, `text-foreground`, `bg-primary`, `bg-card`, etc.
+- **Dark Mode**: Handled via `@custom-variant dark` and `.dark` class on root.
 
 ### Responsive Design Patterns
 
@@ -127,17 +152,19 @@ Mobile-first approach with Tailwind breakpoints:
 
 ```typescript
 // Example: Tailwind class composition with cn utility
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
-<div className={cn(
-  "flex items-center justify-between gap-4",
-  "rounded-lg border border-border",
-  "bg-background/80 backdrop-blur",
-  "px-4 py-3 md:px-6",
-  "dark:bg-background/60"
-)}>
+<div
+  className={cn(
+    "flex items-center justify-between gap-4",
+    "rounded-lg border border-border",
+    "bg-background/80 backdrop-blur",
+    "px-4 py-3 md:px-6",
+    "dark:bg-background/60"
+  )}
+>
   {/* Content */}
-</div>
+</div>;
 ```
 
 ### Class Variance Authority Integration
@@ -145,26 +172,29 @@ import { cn } from '@/lib/utils';
 For components with multiple variants, use CVA:
 
 ```typescript
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva, type VariantProps } from "class-variance-authority";
 
-const buttonVariants = cva('inline-flex items-center justify-center rounded-lg transition-all', {
-  variants: {
-    variant: {
-      default: 'bg-primary text-primary-foreground hover:bg-primary/80',
-      outline: 'border-border bg-background hover:bg-muted',
-      ghost: 'hover:bg-muted hover:text-foreground',
+const buttonVariants = cva(
+  "inline-flex items-center justify-center rounded-lg transition-all",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/80",
+        outline: "border-border bg-background hover:bg-muted",
+        ghost: "hover:bg-muted hover:text-foreground",
+      },
+      size: {
+        default: "h-8 px-2.5 gap-1.5",
+        sm: "h-7 px-2 text-xs",
+        lg: "h-9 px-3",
+      },
     },
-    size: {
-      default: 'h-8 px-2.5 gap-1.5',
-      sm: 'h-7 px-2 text-xs',
-      lg: 'h-9 px-3',
+    defaultVariants: {
+      variant: "default",
+      size: "default",
     },
-  },
-  defaultVariants: {
-    variant: 'default',
-    size: 'default',
-  },
-});
+  }
+);
 ```
 
 Design critique process:
@@ -193,62 +223,70 @@ Design critique process:
 
 #### 1. Hero Section - Typewriter Effect
 
-Hero phrase cycles through: "WhatsApp group chaos" → "invoice forms" → "miscommunication" → "unknown employers"
+Hero phrase cycles through phrases with GSAP-driven typing effect, supporting system theme detection.
 
 ```typescript
 // useTypewriter hook pattern
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, type RefObject } from "react";
 
-export function useTypewriter(phrases: string[], duration = 1500) {
-  const [currentPhrase, setCurrentPhrase] = useState(0);
-  const [displayText, setDisplayText] = useState('');
-  const timeoutRef = useRef<NodeJS.Timeout>();
+interface UseTypewriterOptions {
+  ref: RefObject<HTMLElement | null>;
+  phrases: string[];
+  theme: "light" | "dark" | "system";
+  enabled: boolean;
+}
+
+const phraseColors = {
+  light: ["rgb(34, 197, 94)", "rgb(51, 51, 51)" /* ... */],
+  dark: ["rgb(34, 197, 94)", "rgb(255, 255, 255)" /* ... */],
+};
+
+export function useTypewriter(options: UseTypewriterOptions): void {
+  const { ref, phrases, theme, enabled } = options;
 
   useEffect(() => {
-    const phrase = phrases[currentPhrase];
-    let charIndex = 0;
+    if (!enabled || !ref.current || phrases.length === 0) return;
 
-    // Typing animation
-    const typeInterval = setInterval(() => {
-      setDisplayText(phrase.slice(0, ++charIndex));
-      if (charIndex === phrase.length) {
-        clearInterval(typeInterval);
-        // Hold visible for duration
-        timeoutRef.current = setTimeout(() => {
-          // Delete animation
-          let deleteIndex = phrase.length;
-          const deleteInterval = setInterval(() => {
-            setDisplayText(phrase.slice(0, --deleteIndex));
-            if (deleteIndex === 0) {
-              clearInterval(deleteInterval);
-              setCurrentPhrase((prev) => (prev + 1) % phrases.length);
-            }
-          }, 30);
-        }, duration);
-      }
-    }, 50);
+    let isActive = true;
+
+    // Lazy-load GSAP
+    import("gsap").then((gsapModule) => {
+      if (!isActive) return;
+
+      const resolvedTheme =
+        theme === "system"
+          ? window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light"
+          : theme;
+
+      const colors = phraseColors[resolvedTheme];
+
+      // GSAP implementation logic...
+    });
 
     return () => {
-      clearInterval(typeInterval);
-      clearTimeout(timeoutRef.current);
+      isActive = false;
     };
-  }, [currentPhrase, phrases, duration]);
-
-  return displayText;
+  }, [ref, phrases, theme, enabled]);
 }
 ```
 
 **Accessibility**: Check `prefers-reduced-motion` at component level:
 
 ```typescript
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+});
 
 // If true, show static fallback
-{prefersReducedMotion ? (
-  <span className="text-green-500">{phrases[0]}</span>
-) : (
-  <span ref={typewriterRef} className="text-green-500" />
-)}
+{
+  prefersReducedMotion ? (
+    <span className="text-primary">{phrases[0]}</span>
+  ) : (
+    <span ref={animatedTextRef} className="inline-block..." />
+  );
+}
 ```
 
 #### 2. "Are You Ready To..." Section - Dropping Text
@@ -303,9 +341,9 @@ For pricing section and benefits reveal:
 
 ```typescript
 // useScrollAnimation hook
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -313,14 +351,16 @@ export function useScrollAnimation(triggerSelector: string) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const elements = containerRef.current?.querySelectorAll('[data-scroll-animate]');
+    const elements = containerRef.current?.querySelectorAll(
+      "[data-scroll-animate]"
+    );
     if (!elements) return;
 
     elements.forEach((el, index) => {
       gsap.to(el, {
         scrollTrigger: {
           trigger: el,
-          start: 'top 80%',
+          start: "top 80%",
           onEnter: () => {
             gsap.to(el, {
               opacity: 1,
@@ -334,7 +374,7 @@ export function useScrollAnimation(triggerSelector: string) {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
@@ -342,24 +382,21 @@ export function useScrollAnimation(triggerSelector: string) {
 }
 
 // Usage in component
-const ref = useScrollAnimation('[data-scroll-animate]');
+const ref = useScrollAnimation("[data-scroll-animate]");
 
 <div ref={ref} className="pricing-grid">
   {cards.map((card) => (
-    <div
-      key={card.id}
-      data-scroll-animate
-      className="opacity-0 translate-y-6"
-    >
+    <div key={card.id} data-scroll-animate className="opacity-0 translate-y-6">
       {/* Card content */}
     </div>
   ))}
-</div>
+</div>;
 ```
 
 ### GSAP Best Practices for Shiftra
 
 **Performance optimization**:
+
 - Load GSAP only when animations are needed (lazy-load in layout)
 - Use `transform` and `opacity` for GPU acceleration
 - Batch animations with `.to()` instead of multiple tweens
@@ -367,6 +404,7 @@ const ref = useScrollAnimation('[data-scroll-animate]');
 - Avoid animating dimensions (width/height) - use scale instead
 
 **Accessibility compliance**:
+
 - Always check `prefers-reduced-motion` before starting animations
 - Provide instant fallbacks for reduced motion (static content)
 - Ensure text remains readable during animations
@@ -376,20 +414,22 @@ const ref = useScrollAnimation('[data-scroll-animate]');
 
 ```typescript
 // Simple tween
-gsap.to('.element', { duration: 0.5, opacity: 1, x: 0 });
+gsap.to(".element", { duration: 0.5, opacity: 1, x: 0 });
 
 // Timeline for complex sequences
 const tl = gsap.timeline();
-tl.to('.hero', { opacity: 1 })
-  .to('.hero h1', { opacity: 1, y: 0 }, 0.2)
-  .to('.hero p', { opacity: 1 }, 0.4);
+tl.to(".hero", { opacity: 1 })
+  .to(".hero h1", { opacity: 1, y: 0 }, 0.2)
+  .to(".hero p", { opacity: 1 }, 0.4);
 
 // ScrollTrigger for scroll-based animation
-gsap.to('.pricing-card', {
+gsap.to(".pricing-card", {
   scrollTrigger: {
-    trigger: '.pricing-section',
-    start: 'top center',
-    onEnter: () => { /* animate */ },
+    trigger: ".pricing-section",
+    start: "top center",
+    onEnter: () => {
+      /* animate */
+    },
   },
   opacity: 1,
   y: 0,
@@ -429,24 +469,36 @@ interface HeroSectionProps {}
 
 export default function HeroSection() {
   const { t } = useTranslation(); // i18n hook
-  const phrases = t('hero.phrases', { returnObjects: true }) as string[];
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const { theme } = useTheme(); // Theme hook
+  const phrases = t("hero.phrases", { returnObjects: true }) as string[];
+  const animatedTextRef = useRef<HTMLSpanElement>(null);
 
-  // Check accessibility preference
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mediaQuery.matches);
-  }, []);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  });
+
+  useTypewriter({
+    ref: animatedTextRef,
+    phrases,
+    theme,
+    enabled: !prefersReducedMotion,
+  });
 
   return (
-    <section id="hero" className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-20">
-      <div className="max-w-4xl mx-auto text-center">
+    <section
+      id="hero"
+      className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-20 bg-background"
+    >
+      <div className="max-w-5xl mx-auto text-center">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          <span className="text-primary">{t('hero.prefixText')}</span>
+          <span className="text-primary">{t("hero.prefixText")}</span>
           {prefersReducedMotion ? (
-            <span className="text-green-500">{phrases[0]}</span>
+            <span className="text-primary">{phrases[0]}</span>
           ) : (
-            <span ref={typewriterRef} className="text-green-500" />
+            <span
+              ref={animatedTextRef}
+              className="inline-block min-w-[300px]"
+            />
           )}
         </h1>
         {/* Rest of section */}
@@ -461,22 +513,30 @@ export default function HeroSection() {
 **Navigation component** - Sticky header with language/theme switching:
 
 ```typescript
-import { useTranslation } from 'react-i18next';
-import { useTheme } from '@/contexts/ThemeContext';
+import { useTranslation } from "react-i18next";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Navigation() {
   const { t, i18n } = useTranslation();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       {/* Nav content with language switcher and theme toggle */}
+      <button onClick={toggleTheme}>
+        {theme === "dark" ? <Sun /> : <Moon />}
+      </button>
     </nav>
   );
 }
 ```
 
 **Key shared features:**
+
 - Sticky positioning with backdrop blur
 - Language switcher (EN | PT | ES)
 - Theme toggle (light/dark)
@@ -490,7 +550,11 @@ Use portal-based modals with backdrop and responsive sizing:
 ```typescript
 <div className="fixed inset-0 z-50 flex items-center justify-center p-6 max-sm:p-4">
   {/* Backdrop */}
-  <div className="absolute inset-0 bg-black/40" onClick={onClose} aria-hidden="true" />
+  <div
+    className="absolute inset-0 bg-black/40"
+    onClick={onClose}
+    aria-hidden="true"
+  />
 
   {/* Modal content */}
   <div className="relative z-10 w-full max-w-2xl rounded-2xl border border-border bg-background p-6 shadow-lg">
@@ -513,11 +577,11 @@ Use shadcn/ui form components with proper labels and validation:
 <form className="flex flex-col gap-3" onSubmit={handleSubmit}>
   <fieldset className="flex flex-col gap-3 border-0 p-0 m-0">
     <legend className="mb-2 border-b border-border pb-2 text-sm font-semibold text-muted-foreground">
-      {t('form.section')}
+      {t("form.section")}
     </legend>
 
     <label className="flex flex-col gap-1 text-sm text-foreground">
-      {t('form.fieldLabel')}
+      {t("form.fieldLabel")}
       <Input
         type="text"
         value={value}
@@ -529,7 +593,7 @@ Use shadcn/ui form components with proper labels and validation:
   </fieldset>
 
   <Button type="submit" className="w-full">
-    {t('form.submit')}
+    {t("form.submit")}
   </Button>
 </form>
 ```
@@ -543,8 +607,8 @@ Provide clear empty state messaging with icons:
   <div className="text-2xl" aria-hidden="true">
     📅
   </div>
-  <h3 className="text-lg font-bold">{t('emptyState.title')}</h3>
-  <p className="text-sm text-muted-foreground">{t('emptyState.message')}</p>
+  <h3 className="text-lg font-bold">{t("emptyState.title")}</h3>
+  <p className="text-sm text-muted-foreground">{t("emptyState.message")}</p>
 </div>
 ```
 
@@ -664,12 +728,14 @@ For Shiftra landing page, maintain these Lighthouse scores:
 - **SEO**: 100
 
 **Core Web Vitals targets:**
+
 - **LCP** (Largest Contentful Paint): <2.5s good, <4.0s needs improvement
 - **FID** (First Input Delay): <100ms good, <300ms needs improvement
 - **CLS** (Cumulative Layout Shift): <0.1 good, <0.25 needs improvement
 - **INP** (Interaction to Next Paint): <200ms good, <500ms needs improvement
 
 **Performance optimization checklist:**
+
 - Lazy-load GSAP animations (only when section is visible)
 - Use WebP format for images with PNG/JPG fallbacks
 - Implement responsive images with `srcset` and `sizes`
@@ -685,8 +751,10 @@ For Shiftra landing page, maintain these Lighthouse scores:
 ```typescript
 // Lazy-load GSAP only when needed
 const loadGSAP = async () => {
-  const gsap = await import('gsap');
-  const ScrollTrigger = await import('gsap/ScrollTrigger').then(m => m.default);
+  const gsap = await import("gsap");
+  const ScrollTrigger = await import("gsap/ScrollTrigger").then(
+    (m) => m.default
+  );
   gsap.registerPlugin(ScrollTrigger);
   return gsap;
 };
@@ -694,7 +762,7 @@ const loadGSAP = async () => {
 // Only load animations in useEffect (after render)
 useEffect(() => {
   if (prefersReducedMotion) return;
-  loadGSAP().then(gsap => {
+  loadGSAP().then((gsap) => {
     // Initialize animations
   });
 }, [prefersReducedMotion]);
@@ -703,11 +771,13 @@ useEffect(() => {
 ### Image Optimization
 
 Landing page image slots (from LANDING_PAGE.md):
+
 - `public/assets/landing/agenda.png` - Shift agenda view
 - `public/assets/landing/shift-details.png` - Shift details + requirements
 - `public/assets/landing/invoice.png` - Invoice generation preview
 
 **Image handling pattern:**
+
 ```typescript
 <picture>
   <source srcSet="/assets/landing/agenda.webp" type="image/webp" />
@@ -724,12 +794,14 @@ Landing page image slots (from LANDING_PAGE.md):
 ### Accessibility & i18n Considerations
 
 **Shiftra-specific copy considerations:**
+
 - Australian English spelling (e.g., "organise" not "organize")
 - Portuguese translation expands ~20% (test overflow)
 - Spanish translation also expands (test container sizing)
 - Color accessibility for phrase animations (green, white, yellow, red text)
 
 **Color contrast validation:**
+
 - WCAG AA minimum: 4.5:1 for normal text, 3:1 for large text
 - Test color combinations for colorblind users (red/green in hero phrase colors)
 - Ensure sufficient contrast in both light and dark modes
@@ -737,12 +809,14 @@ Landing page image slots (from LANDING_PAGE.md):
 ### Mobile-First Responsive Breakpoints
 
 Shiftra uses Tailwind CSS breakpoints:
+
 - **Mobile (default)**: No prefix - optimize first for 375px width
 - **Tablet (md: 768px+)**: Multi-column layouts, larger spacing
 - **Desktop (lg: 1024px+)**: Full-width features, 3-column grids
 - **Large screens (xl: 1280px+)**: Max-width containers, larger typography
 
 **Common patterns:**
+
 ```typescript
 // Hero - single column mobile, centered desktop
 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -757,6 +831,7 @@ Shiftra uses Tailwind CSS breakpoints:
 ### Design Documentation Checklist
 
 For each landing page component, document:
+
 - [ ] Component purpose and placement (which section)
 - [ ] Tailwind class composition (no hardcoded colors)
 - [ ] Animation specifications (if any GSAP/CSS)
@@ -805,11 +880,13 @@ src/
 ### Shared vs Section-Specific Design
 
 **Global/Shared**:
+
 - `ThemeContext` - Light/dark mode management
 - `useTranslation` - i18n hook from react-i18next
 - `cn()` utility - Tailwind class merging
 
 **Section-specific components** (within `pages/landing/components/`):
+
 - Self-contained landing page sections
 - Import shared hooks and context
 - Each section = one `tsx` file
