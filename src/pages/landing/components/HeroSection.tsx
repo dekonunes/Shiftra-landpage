@@ -81,15 +81,16 @@ export default function HeroSection() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button size="lg" onClick={() => handleCtaClick("primary")}>
-            {primaryCta}
+          <Button asChild size="lg" onClick={() => handleCtaClick("primary")}>
+            <a href="#pricing">{primaryCta}</a>
           </Button>
           <Button
+            asChild
             size="lg"
             variant="outline"
             onClick={() => handleCtaClick("secondary")}
           >
-            {secondaryCta}
+            <a href="#how-it-works">{secondaryCta}</a>
           </Button>
         </div>
 

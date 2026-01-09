@@ -28,12 +28,12 @@
   "readyTo": {
     "prefix": "Você está pronto para",
     "phrases": [
-      "abandonar o caos de turnos no WhatsApp de vez?",
-      "gerenciar turnos sem mensagens perdidas?",
-      "manter todos os detalhes de turnos em um só lugar?",
+      "abandonar o caos de shifts no WhatsApp de vez?",
+      "gerenciar shifts sem mensagens perdidas?",
+      "manter todos os detalhes de shifts em um só lugar?",
       "gerar faturas em um clique?",
       "coordenar equipes sem conversas em grupo infinitas?",
-      "enviar lembretes de turnos automaticamente?",
+      "enviar lembretes de shifts automaticamente?",
       "manter sua equipe alinhada em vários idiomas?",
       "evitar funcionários desconhecidos e trabalhos pouco claros?"
     ]
@@ -42,8 +42,8 @@
     "title": "Como funciona o Shiftra",
     "steps": [
       {
-        "title": "Publicar ou encontrar um turno",
-        "description": "Navegue turnos disponíveis ou publique novos com detalhes claros"
+        "title": "Publicar ou encontrar um shift",
+        "description": "Navegue shifts disponíveis ou publique novos com detalhes claros"
       },
       {
         "title": "Confirmar detalhes + requisitos",
@@ -54,7 +54,7 @@
         "description": "Monitore seus ganhos e status de pagamento em tempo real"
       },
       {
-        "title": "Detalhes do turno",
+        "title": "Detalhes do shift",
         "description": "Veja localização, horário e requisitos da equipe em um só lugar"
       },
       {
@@ -68,8 +68,8 @@
     "workers": {
       "title": "Para Trabalhadores",
       "items": [
-        "Encontrar e aceitar turnos",
-        "Calendário de turnos e lembretes",
+        "Encontrar e aceitar shifts",
+        "Calendário de shifts e lembretes",
         "Visibilidade de ganhos",
         "Rastreamento de pagamentos",
         "Geração de invoice em um clique",
@@ -79,8 +79,8 @@
     "businesses": {
       "title": "Para Empresas",
       "items": [
-        "Publicar turnos e solicitar trabalhadores",
-        "Lembretes de turno para toda equipe",
+        "Publicar shifts e solicitar trabalhadores",
+        "Lembretes de shift para toda equipe",
         "Chat em grupo da equipe",
         "Tradução com um toque",
         "Armazenar detalhes de invoice uma vez",
@@ -92,7 +92,7 @@
     "title": "Benefícios",
     "items": [
       {
-        "title": "Reduza tempo de invoicing em 80%",
+        "title": "Reduza tempo de invoices em 80%",
         "description": "Geração com um clique economiza horas",
         "number": "80"
       },
@@ -102,12 +102,12 @@
         "number": "5"
       },
       {
-        "title": "1 clique para invoicing",
+        "title": "1 clique para invoices",
         "description": "Invoicing simplificado significa pagamentos mais rápidos",
         "number": "1"
       },
       {
-        "title": "Zero turnos perdidos",
+        "title": "Zero shifts perdidos",
         "description": "Lembretes automáticos mantêm todos alinhados",
         "number": "0"
       }
@@ -134,11 +134,11 @@
       "name": "Pro",
       "price": "$27",
       "period": "por mês",
-      "description": "Para empresas executando turnos em escala",
+      "description": "Para empresas executando shifts em escala",
       "cta": "Ir Pro"
     },
     "features": {
-      "base": "Gestão de turnos (publicar/encontrar/aceitar turnos)",
+      "base": "Gestão de shifts (publicar/encontrar/aceitar shifts)",
       "calendar": "Calendário + lembretes",
       "hours": "Rastreamento de horas + totais",
       "payment": "Status de pagamento (pago vs vencido)",
@@ -149,7 +149,7 @@
     }
   },
   "cta": {
-    "title": "Pronto para executar turnos sem o caos?",
+    "title": "Pronto para executar shifts sem o caos?",
     "button": "Começar"
   },
   "waitlist": {
@@ -157,7 +157,7 @@
     "description": "O aplicativo ainda está em desenvolvimento. Gostaríamos de saber quais recursos mais te interessam.",
     "featuresLabel": "Quais recursos te interessam? (Opcional)",
     "features": {
-      "shiftManagement": "Gestão de turnos",
+      "shiftManagement": "Gestão de shifts",
       "earningsTracking": "Rastreamento de ganhos",
       "invoiceGeneration": "Geração de invoices",
       "crewChat": "Chat de equipe",
