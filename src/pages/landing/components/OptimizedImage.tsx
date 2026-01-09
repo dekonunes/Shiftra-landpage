@@ -25,13 +25,22 @@ interface OptimizedImageProps {
 export default function OptimizedImage({
   src,
   alt,
-  className = '',
-  sizes = '100vw',
+  className = "",
+  sizes = "100vw",
   priority = false,
 }: OptimizedImageProps) {
+  // Handle base URL for production
+  // remove leading slash from src if present to avoid double slashes
+  const cleanSrc = src.startsWith("/") ? src.slice(1) : src;
+  const basePath = import.meta.env.BASE_URL.endsWith("/")
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+
+  const fullSrc = `${basePath}${cleanSrc}`;
+
   // Generate paths for WebP and PNG versions
-  const webpSrc = `${src}.webp`;
-  const pngSrc = `${src}.png`;
+  const webpSrc = `${fullSrc}.webp`;
+  const pngSrc = `${fullSrc}.png`;
 
   return (
     <picture>
@@ -43,7 +52,7 @@ export default function OptimizedImage({
         src={pngSrc}
         alt={alt}
         className={className}
-        loading={priority ? 'eager' : 'lazy'}
+        loading={priority ? "eager" : "lazy"}
         decoding="async"
       />
     </picture>

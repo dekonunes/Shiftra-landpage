@@ -116,7 +116,7 @@ export default function HowItWorksSection() {
         {index === 0 && (
           <CardContent>
             <OptimizedImage
-              src="/src/assets/landing/agenda"
+              src="assets/landing/agenda"
               alt="Agenda showing upcoming shifts and reminders"
               className="w-full rounded-lg border border-border"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -127,7 +127,7 @@ export default function HowItWorksSection() {
         {index === 1 && (
           <CardContent>
             <OptimizedImage
-              src="/src/assets/landing/shift-details"
+              src="assets/landing/shift-details"
               alt="Shift details with requirements and acceptance flow"
               className="w-full rounded-lg border border-border"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -138,7 +138,7 @@ export default function HowItWorksSection() {
         {index === 2 && (
           <CardContent>
             <OptimizedImage
-              src="/src/assets/landing/estimate"
+              src="assets/landing/estimate"
               alt="Automatic roster with estimated earnings and weekly hours"
               className="w-full rounded-lg border border-border"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -149,7 +149,7 @@ export default function HowItWorksSection() {
         {index === 3 && (
           <CardContent>
             <OptimizedImage
-              src="/src/assets/landing/invoice"
+              src="assets/landing/invoice"
               alt="Invoice preview with totals and one-click generation"
               className="w-full rounded-lg border border-border"
               sizes="(max-width: 768px) 100vw, 50vw"
