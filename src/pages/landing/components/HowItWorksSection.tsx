@@ -14,7 +14,7 @@ import {
   FileText,
   Calendar,
 } from "lucide-react";
-import OptimizedImage from "./OptimizedImage";
+import ZoomableImage from "./ZoomableImage";
 
 const stepIcons = [ClipboardList, CheckCircle, DollarSign, Calendar, FileText];
 
@@ -129,7 +129,7 @@ export default function HowItWorksSection() {
         {/* Show images for specific steps */}
         {index === 0 && (
           <CardContent>
-            <OptimizedImage
+            <ZoomableImage
               src="assets/landing/agenda"
               alt="Agenda showing upcoming shifts and reminders"
               className="w-full rounded-lg border border-border"
@@ -140,7 +140,7 @@ export default function HowItWorksSection() {
 
         {index === 1 && (
           <CardContent>
-            <OptimizedImage
+            <ZoomableImage
               src="assets/landing/create-shift"
               alt="Shift details with requirements and acceptance flow"
               className="w-full rounded-lg border border-border"
@@ -151,7 +151,7 @@ export default function HowItWorksSection() {
 
         {index === 2 && (
           <CardContent>
-            <OptimizedImage
+            <ZoomableImage
               src="assets/landing/estimate"
               alt="Automatic roster with estimated earnings and weekly hours"
               className="w-full rounded-lg border border-border"
@@ -162,7 +162,7 @@ export default function HowItWorksSection() {
 
         {index === 3 && (
           <CardContent>
-            <OptimizedImage
+            <ZoomableImage
               src="assets/landing/shift-details"
               alt="Shift details with requirements and acceptance flow"
               className="w-full rounded-lg border border-border"
@@ -173,7 +173,7 @@ export default function HowItWorksSection() {
 
         {index === 4 && (
           <CardContent>
-            <OptimizedImage
+            <ZoomableImage
               src="assets/landing/invoice"
               alt="Invoice preview with totals and one-click generation"
               className="w-full rounded-lg border border-border"

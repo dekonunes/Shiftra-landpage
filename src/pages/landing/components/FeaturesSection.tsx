@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import {
   Search,
   Calendar,
@@ -14,11 +14,18 @@ import {
   Clock,
   Calculator,
   type LucideIcon,
-} from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+} from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // Icon mapping for worker features
-const workerIcons = [Search, Calendar, TrendingUp, CreditCard, FileText, Calculator];
+const workerIcons = [
+  Search,
+  Calendar,
+  TrendingUp,
+  CreditCard,
+  FileText,
+  Calculator,
+];
 
 // Icon mapping for business features
 const businessIcons = [Users, Bell, MessageSquare, Languages, Building, Clock];
@@ -43,20 +50,20 @@ export default function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const title = t('features.title');
-  const workersTitle = t('features.workers.title');
-  const workersItems = t('features.workers.items', {
+  const title = t("features.title");
+  const workersTitle = t("features.workers.title");
+  const workersItems = t("features.workers.items", {
     returnObjects: true,
   }) as string[];
-  const businessesTitle = t('features.businesses.title');
-  const businessesItems = t('features.businesses.items', {
+  const businessesTitle = t("features.businesses.title");
+  const businessesItems = t("features.businesses.items", {
     returnObjects: true,
   }) as string[];
 
   useEffect(() => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
+      "(prefers-reduced-motion: reduce)"
     ).matches;
 
     if (prefersReducedMotion) {
@@ -65,15 +72,17 @@ export default function FeaturesSection() {
 
     // Lazy load GSAP for scroll animations
     const animateFeatures = async () => {
-      const gsapModule = await import('gsap');
-      const ScrollTriggerModule = await import('gsap/ScrollTrigger');
+      const gsapModule = await import("gsap");
+      const ScrollTriggerModule = await import("gsap/ScrollTrigger");
 
       const gsap = gsapModule.default;
       const ScrollTrigger = ScrollTriggerModule.default;
 
       gsap.registerPlugin(ScrollTrigger);
 
-      const cards = sectionRef.current?.querySelectorAll('[data-animate-feature]');
+      const cards = sectionRef.current?.querySelectorAll(
+        "[data-animate-feature]"
+      );
       if (!cards || hasAnimated) return;
 
       setHasAnimated(true);
@@ -89,10 +98,10 @@ export default function FeaturesSection() {
           y: 0,
           duration: 0.6,
           stagger: 0.2,
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: "top 80%",
             once: true,
           },
         }
@@ -103,7 +112,11 @@ export default function FeaturesSection() {
   }, [hasAnimated]);
 
   return (
-    <section ref={sectionRef} id="features" className="px-4 py-20 bg-background">
+    <section
+      ref={sectionRef}
+      id="features"
+      className="px-4 py-20 bg-background"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Section title */}
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-16 text-foreground">
@@ -120,7 +133,7 @@ export default function FeaturesSection() {
                   {workersTitle}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-12">
                 <div className="space-y-4">
                   {workersItems.map((item, index) => (
                     <FeatureRow
@@ -142,7 +155,7 @@ export default function FeaturesSection() {
                   {businessesTitle}
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="px-12">
                 <div className="space-y-4">
                   {businessesItems.map((item, index) => (
                     <FeatureRow

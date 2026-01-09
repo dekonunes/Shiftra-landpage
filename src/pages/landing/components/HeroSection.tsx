@@ -41,19 +41,23 @@ export default function HeroSection() {
   });
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-20 bg-background">
+    <section className="relative min-h-[calc(90vh-4rem)] flex items-center justify-center px-4 py-16 bg-background">
       <div className="max-w-7xl mx-auto text-center">
         {/* Headline with typewriter effect */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          <span className="text-primary">{prefixText}</span>{" "}
+          <span className="text-primary block sm:inline text-5xl sm:text-5xl lg:text-6xl">
+            {prefixText}
+          </span>
           {prefersReducedMotion ? (
             // Static fallback for reduced motion
-            <span className="text-primary">{phrases[0]}</span>
+            <span className="text-primary block sm:inline sm:ml-2 text-3xl sm:text-5xl lg:text-6xl text-center sm:text-left">
+              {phrases[0]}
+            </span>
           ) : (
             // Animated typewriter text
             <span
               ref={animatedTextRef}
-              className="inline-block min-w-[300px] sm:min-w-[400px] text-left"
+              className="block sm:inline-block sm:ml-2 min-w-[300px] sm:min-w-[400px] text-3xl sm:text-5xl lg:text-6xl text-center sm:text-left"
               aria-live="polite"
               aria-atomic="true"
             >

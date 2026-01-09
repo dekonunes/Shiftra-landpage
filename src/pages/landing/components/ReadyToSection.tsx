@@ -1,11 +1,11 @@
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 export default function ReadyToSection() {
   const { t } = useTranslation();
 
   // Retrieve i18n strings
-  const prefix = t('readyTo.prefix');
-  const phrases = t('readyTo.phrases', { returnObjects: true }) as string[];
+  const prefix = t("readyTo.prefix");
+  const phrases = t("readyTo.phrases", { returnObjects: true }) as string[];
 
   return (
     <section id="ready-to" className="py-16 sm:py-24 bg-muted/30">
@@ -17,7 +17,7 @@ export default function ReadyToSection() {
           </p>
 
           {/* Animated phrases container */}
-          <div className="dropping-texts h-10 sm:h-12 lg:h-14 overflow-hidden relative w-full">
+          <div className="dropping-texts h-[3.8rem] sm:h-[4.3rem] lg:h-[4.8rem] overflow-hidden relative w-full">
             {phrases.map((phrase, index) => (
               <div
                 key={index}
