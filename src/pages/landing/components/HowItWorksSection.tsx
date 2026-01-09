@@ -1,10 +1,22 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { ClipboardList, CheckCircle, DollarSign, FileText } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import {
+  ClipboardList,
+  CheckCircle,
+  DollarSign,
+  FileText,
+  Calendar,
+} from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
-const stepIcons = [ClipboardList, CheckCircle, DollarSign, FileText];
+const stepIcons = [ClipboardList, CheckCircle, DollarSign, Calendar, FileText];
 
 /**
  * HowItWorksSection - Showcase the 4-step workflow
@@ -25,8 +37,8 @@ export default function HowItWorksSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const title = t('howItWorks.title');
-  const steps = t('howItWorks.steps', { returnObjects: true }) as Array<{
+  const title = t("howItWorks.title");
+  const steps = t("howItWorks.steps", { returnObjects: true }) as Array<{
     title: string;
     description: string;
   }>;
@@ -34,7 +46,7 @@ export default function HowItWorksSection() {
   useEffect(() => {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
+      "(prefers-reduced-motion: reduce)"
     ).matches;
 
     if (prefersReducedMotion) {
@@ -43,8 +55,8 @@ export default function HowItWorksSection() {
 
     // Lazy load GSAP only when needed
     const animateCards = async () => {
-      const gsapModule = await import('gsap');
-      const ScrollTriggerModule = await import('gsap/ScrollTrigger');
+      const gsapModule = await import("gsap");
+      const ScrollTriggerModule = await import("gsap/ScrollTrigger");
 
       const gsap = gsapModule.default;
       const ScrollTrigger = ScrollTriggerModule.default;
@@ -52,11 +64,13 @@ export default function HowItWorksSection() {
       gsap.registerPlugin(ScrollTrigger);
 
       // Select all cards but filter for visibility to ensure we animate the correct set
-      const allCards = sectionRef.current?.querySelectorAll('[data-animate-card]');
+      const allCards = sectionRef.current?.querySelectorAll(
+        "[data-animate-card]"
+      );
       if (!allCards || hasAnimated) return;
 
       const visibleCards = Array.from(allCards).filter((card) => {
-        return window.getComputedStyle(card).display !== 'none';
+        return window.getComputedStyle(card).display !== "none";
       });
 
       if (visibleCards.length === 0) return;
@@ -74,10 +88,10 @@ export default function HowItWorksSection() {
           y: 0,
           duration: 0.6,
           stagger: 0.2, // 0.2s delay between each card
-          ease: 'power2.out',
+          ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: "top 80%",
             once: true, // Only animate once
           },
         }
@@ -127,7 +141,7 @@ export default function HowItWorksSection() {
         {index === 1 && (
           <CardContent>
             <OptimizedImage
-              src="assets/landing/shift-details"
+              src="assets/landing/create-shift"
               alt="Shift details with requirements and acceptance flow"
               className="w-full rounded-lg border border-border"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -147,6 +161,17 @@ export default function HowItWorksSection() {
         )}
 
         {index === 3 && (
+          <CardContent>
+            <OptimizedImage
+              src="assets/landing/shift-details"
+              alt="Shift details with requirements and acceptance flow"
+              className="w-full rounded-lg border border-border"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </CardContent>
+        )}
+
+        {index === 4 && (
           <CardContent>
             <OptimizedImage
               src="assets/landing/invoice"
@@ -182,10 +207,11 @@ export default function HowItWorksSection() {
           <div className="space-y-8">
             {renderCard(0)}
             {renderCard(2)}
+            {renderCard(3)}
           </div>
           <div className="space-y-8">
             {renderCard(1)}
-            {renderCard(3)}
+            {renderCard(4)}
           </div>
         </div>
       </div>

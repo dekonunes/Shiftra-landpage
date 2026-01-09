@@ -54,6 +54,10 @@
         "description": "Monitorea tus ganancias y estado de pago en tiempo real"
       },
       {
+        "title": "Detalles del turno",
+        "description": "Ver ubicación, hora y requisitos del equipo en un solo lugar"
+      },
+      {
         "title": "Generar y enviar facturas",
         "description": "Crea facturas conformes con un clic"
       }

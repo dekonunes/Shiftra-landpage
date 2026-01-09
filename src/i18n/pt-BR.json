@@ -54,6 +54,10 @@
         "description": "Monitore seus ganhos e status de pagamento em tempo real"
       },
       {
+        "title": "Detalhes do turno",
+        "description": "Veja localização, horário e requisitos da equipe em um só lugar"
+      },
+      {
         "title": "Gerar e enviar invoices",
         "description": "Crie invoices conformes com um clique"
       }

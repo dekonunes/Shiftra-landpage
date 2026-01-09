@@ -54,6 +54,10 @@
         "description": "Monitor your earnings and payment status in real-time"
       },
       {
+        "title": "Shift details",
+        "description": "View location, time, and team requirements in one place"
+      },
+      {
         "title": "Generate and send invoices",
         "description": "Create compliant invoices with one click"
       }
