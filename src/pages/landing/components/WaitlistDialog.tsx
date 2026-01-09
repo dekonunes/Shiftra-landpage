@@ -126,13 +126,32 @@ export default function WaitlistDialog({
       has_feedback: formData.feedback.trim().length > 0,
     });
 
-    // Log to console (no backend integration yet)
-    console.log('Waitlist submission:', {
-      email: formData.email,
-      features: formData.selectedFeatures,
-      feedback: formData.feedback,
-      timestamp: new Date().toISOString(),
-    });
+    const portalId = '442638597';
+    const formId = 'e6b40c34-f803-4b46-a502-da0ee97f5129';
+    const selectedFeaturesText =
+      formData.selectedFeatures.length > 0
+        ? formData.selectedFeatures.join(', ')
+        : 'none';
+    const feedbackText = formData.feedback.trim() || 'none';
+
+    void fetch(
+      `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: [
+            { name: 'email', value: formData.email },
+            { name: 'firstname', value: selectedFeaturesText },
+            { name: 'lastname', value: feedbackText },
+          ],
+          context: {
+            pageUri: window.location.href,
+            pageName: document.title,
+          },
+        }),
+      }
+    );
 
     // Show success state
     setIsSubmitted(true);
