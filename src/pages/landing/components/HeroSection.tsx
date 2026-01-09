@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useTheme } from "@/contexts/ThemeContext";
 import { Button } from "@/components/ui/button";
+import { trackEvent } from "@/lib/analytics";
 import { useTypewriter } from "../hooks/useTypewriter";
 
 export default function HeroSection() {
@@ -22,6 +23,10 @@ export default function HeroSection() {
   const secondaryCta = t("hero.secondaryCta");
   const trustLine = t("hero.trustLine");
 
+  const handleCtaClick = (variant: "primary" | "secondary") => {
+    trackEvent("cta_click", { location: "hero", variant });
+  };
+
   // Listen for changes to prefers-reduced-motion
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -41,7 +46,10 @@ export default function HeroSection() {
   });
 
   return (
-    <section className="relative min-h-[calc(90vh-4rem)] flex items-center justify-center px-4 py-16 bg-background">
+    <section
+      id="hero"
+      className="relative min-h-[calc(90vh-4rem)] flex items-center justify-center px-4 py-16 bg-background"
+    >
       <div className="max-w-7xl mx-auto text-center">
         {/* Headline with typewriter effect */}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -73,8 +81,14 @@ export default function HeroSection() {
 
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-          <Button size="lg">{primaryCta}</Button>
-          <Button size="lg" variant="outline">
+          <Button size="lg" onClick={() => handleCtaClick("primary")}>
+            {primaryCta}
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            onClick={() => handleCtaClick("secondary")}
+          >
             {secondaryCta}
           </Button>
         </div>

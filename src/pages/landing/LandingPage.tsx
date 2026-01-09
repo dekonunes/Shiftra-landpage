@@ -7,8 +7,26 @@ import BenefitsSection from './components/BenefitsSection';
 import PricingSection from './components/PricingSection';
 import CTASection from './components/CTASection';
 import Footer from './components/Footer';
+import useScrollDepthTracking from './hooks/useScrollDepthTracking';
+import useSectionTracking, {
+  type SectionTrackingConfig,
+} from './hooks/useSectionTracking';
+
+const SECTION_TRACKING_CONFIG: SectionTrackingConfig[] = [
+  { id: 'hero', name: 'Hero', order: 1 },
+  { id: 'ready-to', name: 'Ready To', order: 2 },
+  { id: 'how-it-works', name: 'How It Works', order: 3 },
+  { id: 'features', name: 'Features', order: 4 },
+  { id: 'benefits', name: 'Benefits', order: 5 },
+  { id: 'pricing', name: 'Pricing', order: 6 },
+  { id: 'cta', name: 'CTA', order: 7 },
+  { id: 'footer', name: 'Footer', order: 8 },
+];
 
 export default function LandingPage() {
+  useSectionTracking(SECTION_TRACKING_CONFIG);
+  useScrollDepthTracking();
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />

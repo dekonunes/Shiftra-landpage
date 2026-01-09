@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from '@/lib/analytics';
 import WaitlistDialog from './WaitlistDialog';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -40,6 +41,11 @@ export default function CTASection() {
     enabled: !prefersReducedMotion,
   });
 
+  const handleCtaClick = () => {
+    trackEvent('cta_click', { location: 'cta_section', variant: 'primary' });
+    setIsDialogOpen(true);
+  };
+
   return (
     <>
       <section id="cta" className="px-4 py-20 bg-muted/30">
@@ -51,7 +57,7 @@ export default function CTASection() {
           <Button
             size="lg"
             className="px-8 py-6 text-lg"
-            onClick={() => setIsDialogOpen(true)}
+            onClick={handleCtaClick}
           >
             {t('cta.button')}
           </Button>

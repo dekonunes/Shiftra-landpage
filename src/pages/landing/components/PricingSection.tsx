@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Check, X } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 export default function PricingSection() {
   const { t } = useTranslation();
@@ -108,6 +109,9 @@ export default function PricingSection() {
               <Button
                 className="w-full mb-6"
                 variant={tier.id === 'pro' ? 'default' : 'outline'}
+                onClick={() =>
+                  trackEvent('pricing_select', { plan: tier.id })
+                }
               >
                 {tier.cta}
               </Button>

@@ -1,4 +1,4 @@
-import { useState, type FormEvent, type ChangeEvent } from 'react';
+import { useEffect, useState, type FormEvent, type ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Dialog,
@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Check } from 'lucide-react';
+import { trackEvent } from '@/lib/analytics';
 
 type WaitlistFeature =
   | 'shift-management'
@@ -51,6 +52,12 @@ export default function WaitlistDialog({
 
   const [errors, setErrors] = useState<ValidationErrors>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      trackEvent('waitlist_open', { source: 'cta_section' });
+    }
+  }, [open]);
 
   const features: Array<{ id: WaitlistFeature; labelKey: string }> = [
     { id: 'shift-management', labelKey: 'waitlist.features.shiftManagement' },
@@ -113,6 +120,11 @@ export default function WaitlistDialog({
       setErrors({ email: emailError });
       return;
     }
+
+    trackEvent('waitlist_submit', {
+      selected_features_count: formData.selectedFeatures.length,
+      has_feedback: formData.feedback.trim().length > 0,
+    });
 
     // Log to console (no backend integration yet)
     console.log('Waitlist submission:', {
