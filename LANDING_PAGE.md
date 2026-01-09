@@ -78,6 +78,26 @@ Shiftra replaces fragmented WhatsApp scheduling and manual invoicing with one pl
 
 - Clear, modern, professional, and friendly
 - Avoid slang; avoid overpromising (“guaranteed”, “always”)
+
+## Analytics
+
+Track engagement and conversion behavior with GA4. Event instrumentation lives in the landing page components and should remain lightweight and privacy-safe.
+
+### Event Catalog
+
+- `section_view`: First time a section becomes visible (params: `section_id`, `section_name`, `order`).
+- `scroll_depth`: Page scroll depth milestones (params: `percent` at 25/50/75/100).
+- `cta_click`: CTA button clicks (params: `location`, `variant`).
+- `pricing_select`: Pricing CTA clicks (params: `plan`).
+- `footer_link_click`: Footer navigation clicks (params: `link_text`, `href`, `link_type`).
+- `waitlist_open`: Waitlist dialog opens (params: `source`).
+- `waitlist_submit`: Waitlist form success (params: `selected_features_count`, `has_feedback`).
+
+### GA4 Conversions
+
+Mark these events as conversions in GA4:
+- `waitlist_open`
+- `waitlist_submit`
 - Use Australian English spelling where appropriate
 - Write for scanning: short sections, strong headings, simple sentences
 
