@@ -67,14 +67,14 @@ export default function PricingCard({
         </div>
       )}
 
-      <CardHeader className="flex-grow">
-        {/* Tier badge (e.g., "No credit card required" for Free tier) */}
-        {badgeKey && (
-          <div className="mb-2 inline-flex self-start rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground">
-            {badgeKey}
-          </div>
-        )}
+      {/* Tier badge (e.g., "No credit card required" for Free tier) */}
+      {badgeKey && (
+        <div className="absolute right-4 top-4 inline-flex rounded-md bg-muted px-2 py-1 text-xs font-medium text-muted-foreground shadow-sm">
+          {badgeKey}
+        </div>
+      )}
 
+      <CardHeader className="flex-grow">
         {/* Tier name */}
         <h3 className="mb-2 text-xl font-bold">{titleKey}</h3>
 

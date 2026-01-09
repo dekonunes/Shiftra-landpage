@@ -126,7 +126,11 @@ export default function FeaturesSection() {
         {/* Two-column layout with big cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Worker Features Card */}
-          <div data-animate-feature>
+          <div
+            data-animate-feature
+            id="workers"
+            className="scroll-mt-24"
+          >
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="text-2xl text-primary text-center">
@@ -148,7 +152,11 @@ export default function FeaturesSection() {
           </div>
 
           {/* Business Features Card */}
-          <div data-animate-feature>
+          <div
+            data-animate-feature
+            id="businesses"
+            className="scroll-mt-24"
+          >
             <Card className="h-full">
               <CardHeader>
                 <CardTitle className="text-2xl text-primary text-center">

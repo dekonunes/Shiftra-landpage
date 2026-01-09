@@ -73,7 +73,7 @@ export default function PricingSection() {
           {pricingTiers.map((tier) => (
             <Card
               key={tier.id}
-              className={`flex flex-col p-6 ${
+              className={`relative flex flex-col p-6 ${
                 tier.id === 'pro'
                   ? 'bg-primary/5 ring-2 ring-primary/30 lg:scale-105 lg:shadow-xl'
                   : tier.id === 'starter'
@@ -83,11 +83,9 @@ export default function PricingSection() {
             >
               {/* Badge for Free plan */}
               {tier.badge && (
-                <div className="mb-4">
-                  <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
-                    {tier.badge}
-                  </span>
-                </div>
+                <span className="absolute right-4 top-4 inline-flex rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-800 shadow-sm dark:bg-green-900/30 dark:text-green-400">
+                  {tier.badge}
+                </span>
               )}
 
               {/* Plan name */}
