@@ -148,10 +148,55 @@
     "title": "Pronto para executar turnos sem o caos?",
     "button": "Começar"
   },
+  "waitlist": {
+    "title": "Entrar na lista de espera",
+    "description": "O aplicativo ainda está em desenvolvimento. Gostaríamos de saber quais recursos mais te interessam.",
+    "featuresLabel": "Quais recursos te interessam? (Opcional)",
+    "features": {
+      "shiftManagement": "Gestão de turnos",
+      "earningsTracking": "Rastreamento de ganhos",
+      "invoiceGeneration": "Geração de invoices",
+      "crewChat": "Chat de equipe",
+      "translation": "Tradução com um toque",
+      "workerDiscovery": "Descoberta de trabalhadores"
+    },
+    "feedbackLabel": "Algum pensamento ou pergunta? (Opcional)",
+    "feedbackPlaceholder": "Compartilhe seus pensamentos...",
+    "emailLabel": "Endereço de email",
+    "emailPlaceholder": "seu@email.com",
+    "emailRequired": "Endereço de email é obrigatório",
+    "emailInvalid": "Por favor, insira um endereço de email válido",
+    "submit": "Me notifique quando estiver pronto",
+    "successTitle": "Você está na lista!",
+    "successMessage": "Obrigado! Nós vamos te notificar em {{email}} quando Shiftra estiver pronto para usar.",
+    "close": "Fechar"
+  },
   "footer": {
-    "company": "Shiftra",
-    "contact": "support@shiftra.app",
-    "privacy": "Política de Privacidade",
-    "terms": "Termos de Serviço"
+    "sections": {
+      "product": {
+        "title": "Produto",
+        "features": "Recursos",
+        "howItWorks": "Como funciona",
+        "pricing": "Preços"
+      },
+      "company": {
+        "title": "Empresa",
+        "about": "Sobre",
+        "blog": "Blog",
+        "careers": "Carreiras"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Política de Privacidade",
+        "terms": "Termos de Serviço",
+        "contact": "Contato"
+      },
+      "connect": {
+        "title": "Conectar",
+        "website": "shiftra.app",
+        "email": "support@shiftra.app"
+      }
+    },
+    "copyright": "© {{year}} Shiftra. Todos os direitos reservados."
   }
 }

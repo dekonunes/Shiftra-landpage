@@ -148,10 +148,55 @@
     "title": "Ready to run shifts without the chaos?",
     "button": "Get started"
   },
+  "waitlist": {
+    "title": "Join the Waitlist",
+    "description": "The app is still in development. We'd love to know which features interest you most.",
+    "featuresLabel": "Which features interest you? (Optional)",
+    "features": {
+      "shiftManagement": "Shift management",
+      "earningsTracking": "Earnings tracking",
+      "invoiceGeneration": "Invoice generation",
+      "crewChat": "Crew chat",
+      "translation": "One-tap translation",
+      "workerDiscovery": "Worker discovery"
+    },
+    "feedbackLabel": "Any thoughts or questions? (Optional)",
+    "feedbackPlaceholder": "Share your thoughts...",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "your@email.com",
+    "emailRequired": "Email address is required",
+    "emailInvalid": "Please enter a valid email address",
+    "submit": "Notify me when ready",
+    "successTitle": "You're on the list!",
+    "successMessage": "Thanks! We'll notify you at {{email}} when Shiftra is ready to use.",
+    "close": "Close"
+  },
   "footer": {
-    "company": "Shiftra",
-    "contact": "support@shiftra.app",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
+    "sections": {
+      "product": {
+        "title": "Product",
+        "features": "Features",
+        "howItWorks": "How it works",
+        "pricing": "Pricing"
+      },
+      "company": {
+        "title": "Company",
+        "about": "About",
+        "blog": "Blog",
+        "careers": "Careers"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "contact": "Contact"
+      },
+      "connect": {
+        "title": "Connect",
+        "website": "shiftra.app",
+        "email": "support@shiftra.app"
+      }
+    },
+    "copyright": "© {{year}} Shiftra. All rights reserved."
   }
 }

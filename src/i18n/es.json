@@ -148,10 +148,55 @@
     "title": "¿Listo para ejecutar turnos sin el caos?",
     "button": "Comenzar"
   },
+  "waitlist": {
+    "title": "Únete a la lista de espera",
+    "description": "La aplicación aún está en desarrollo. Nos encantaría saber qué características te interesan más.",
+    "featuresLabel": "¿Qué características te interesan? (Opcional)",
+    "features": {
+      "shiftManagement": "Gestión de turnos",
+      "earningsTracking": "Seguimiento de ganancias",
+      "invoiceGeneration": "Generación de facturas",
+      "crewChat": "Chat de equipo",
+      "translation": "Traducción con un toque",
+      "workerDiscovery": "Descubrimiento de trabajadores"
+    },
+    "feedbackLabel": "¿Algún pensamiento o pregunta? (Opcional)",
+    "feedbackPlaceholder": "Comparte tus pensamientos...",
+    "emailLabel": "Dirección de correo electrónico",
+    "emailPlaceholder": "tu@correo.com",
+    "emailRequired": "Dirección de correo electrónico es requerida",
+    "emailInvalid": "Por favor, ingresa una dirección de correo electrónico válida",
+    "submit": "Notificarme cuando esté listo",
+    "successTitle": "¡Estás en la lista!",
+    "successMessage": "¡Gracias! Te notificaremos en {{email}} cuando Shiftra esté listo para usar.",
+    "close": "Cerrar"
+  },
   "footer": {
-    "company": "Shiftra",
-    "contact": "support@shiftra.app",
-    "privacy": "Política de Privacidad",
-    "terms": "Términos de Servicio"
+    "sections": {
+      "product": {
+        "title": "Producto",
+        "features": "Características",
+        "howItWorks": "Cómo funciona",
+        "pricing": "Precios"
+      },
+      "company": {
+        "title": "Empresa",
+        "about": "Acerca de",
+        "blog": "Blog",
+        "careers": "Carreras"
+      },
+      "legal": {
+        "title": "Legal",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Servicio",
+        "contact": "Contacto"
+      },
+      "connect": {
+        "title": "Conectar",
+        "website": "shiftra.app",
+        "email": "support@shiftra.app"
+      }
+    },
+    "copyright": "© {{year}} Shiftra. Todos los derechos reservados."
   }
 }

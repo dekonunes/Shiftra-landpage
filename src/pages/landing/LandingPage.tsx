@@ -4,6 +4,9 @@ import ReadyToSection from './components/ReadyToSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import FeaturesSection from './components/FeaturesSection';
 import BenefitsSection from './components/BenefitsSection';
+import PricingSection from './components/PricingSection';
+import CTASection from './components/CTASection';
+import Footer from './components/Footer';
 
 export default function LandingPage() {
   return (
@@ -15,8 +18,10 @@ export default function LandingPage() {
         <HowItWorksSection />
         <FeaturesSection />
         <BenefitsSection />
-        {/* TODO Phase 3: Add PricingSection, CTASection, Footer */}
+        <PricingSection />
+        <CTASection />
       </main>
+      <Footer />
     </div>
   );
 }
