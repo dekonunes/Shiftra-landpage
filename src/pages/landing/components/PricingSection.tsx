@@ -113,7 +113,7 @@ export default function PricingSection() {
                 className="w-full mb-6"
                 variant={tier.id === 'pro' ? 'default' : 'outline'}
                 onClick={() => {
-                  trackEvent('pricing_select', { plan: tier.id });
+                  trackEvent(`pricing_select_${tier.id}`, { plan: tier.id });
                   setIsDialogOpen(true);
                 }}
               >
