@@ -5,7 +5,6 @@ TBD - created by archiving change implement-landing-core-sections. Update Purpos
 ## Requirements
 ### Requirement: The HowItWorksSection component SHALL render a 4-step workflow with scroll-triggered card animations
 
-**Description:**
 The HowItWorksSection component MUST render a visual workflow showing 4 steps (Post/Find → Confirm → Track → Invoice) with step cards that fade in with a stagger effect when scrolled into view. Each step card MUST include an icon, title, description, and optionally an accompanying screenshot image. The animation MUST be powered by GSAP ScrollTrigger and respect user motion preferences.
 
 **Context:**
@@ -52,7 +51,6 @@ The HowItWorksSection component MUST render a visual workflow showing 4 steps (P
 
 ### Requirement: The HowItWorksSection component SHALL display optimized images with responsive sources (mobile vs desktop)
 
-**Description:**
 Each step card MAY display an accompanying screenshot image that illustrates the workflow step. Images MUST be optimized for performance using WebP format with PNG fallback, and MUST use responsive image sources (mobile images for <768px, desktop images for ≥768px). All images MUST be lazy-loaded to improve initial page load performance.
 
 **Context:**
@@ -97,7 +95,6 @@ Each step card MAY display an accompanying screenshot image that illustrates the
 
 ### Requirement: The HowItWorksSection component SHALL render all text content from i18n translations
 
-**Description:**
 All text content in the HowItWorksSection (section heading, step titles, step descriptions) MUST be sourced from i18n JSON files to support English, Portuguese (Brazil), and Spanish translations. The component MUST re-render with updated text when the user switches languages via the Navigation language selector.
 
 **Context:**
@@ -131,7 +128,6 @@ All text content in the HowItWorksSection (section heading, step titles, step de
 
 ### Requirement: The HowItWorksSection component SHALL display Lucide React icons that are theme-aware and accessible
 
-**Description:**
 Each step card MUST display a Lucide React icon that visually represents the workflow step. Icons MUST adapt to the current theme (light/dark mode) using semantic color classes and MUST be accessible to screen readers via proper aria attributes.
 
 **Context:**
@@ -165,7 +161,6 @@ Each step card MUST display a Lucide React icon that visually represents the wor
 
 ### Requirement: The HowItWorksSection component SHALL maintain responsive layout across all breakpoints
 
-**Description:**
 The HowItWorksSection MUST adapt its layout responsively across mobile, tablet, and desktop breakpoints using a mobile-first approach. Step cards MUST stack vertically on mobile, display in 2 columns on tablet, and remain 2 columns on desktop with increased spacing.
 
 **Context:**

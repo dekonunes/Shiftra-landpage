@@ -5,7 +5,6 @@ TBD - created by archiving change implement-landing-core-sections. Update Purpos
 ## Requirements
 ### Requirement: The FeaturesSection component SHALL render worker and business feature cards in side-by-side layouts
 
-**Description:**
 The FeaturesSection component MUST render two distinct feature sets (Workers and Businesses) in a responsive side-by-side layout. Each feature MUST be displayed as a card with an icon, title, and description. Cards MUST fade in with a stagger effect when scrolled into view using GSAP ScrollTrigger, and the layout MUST adapt responsively from stacked (mobile) to side-by-side columns (desktop).
 
 **Context:**
@@ -53,7 +52,6 @@ The FeaturesSection component MUST render two distinct feature sets (Workers and
 
 ### Requirement: The FeaturesSection component SHALL display worker-specific features sourced from i18n translations
 
-**Description:**
 The FeaturesSection MUST render worker-specific features sourced from i18n JSON files. Each feature MUST include a title and description that communicate the value proposition for workers (shift finding, calendar management, earnings tracking, payment tracking, invoice generation).
 
 **Context:**
@@ -96,7 +94,6 @@ The FeaturesSection MUST render worker-specific features sourced from i18n JSON 
 
 ### Requirement: The FeaturesSection component SHALL display business-specific features sourced from i18n translations
 
-**Description:**
 The FeaturesSection MUST render business-specific features sourced from i18n JSON files. Each feature MUST include a title and description that communicate the value proposition for businesses (shift posting, crew management, communication tools, translation, worker discovery, invoice management).
 
 **Context:**
@@ -139,7 +136,6 @@ The FeaturesSection MUST render business-specific features sourced from i18n JSO
 
 ### Requirement: The FeatureCard component SHALL render a reusable card with icon, title, and description
 
-**Description:**
 The FeatureCard component MUST be a reusable component that renders a single feature card with a Lucide icon, title, and description. The card MUST use the shadcn/ui Card component as its base and MUST adapt to the current theme (light/dark mode) using semantic color classes.
 
 **Context:**
@@ -178,7 +174,6 @@ The FeatureCard component MUST be a reusable component that renders a single fea
 
 ### Requirement: The FeaturesSection component SHALL maintain responsive layout with side-by-side columns
 
-**Description:**
 The FeaturesSection MUST adapt its layout responsively across mobile, tablet, and desktop breakpoints. On mobile, worker and business features MUST stack vertically. On tablet and desktop, they MUST display side-by-side with each subsection using a responsive grid for its feature cards.
 
 **Context:**

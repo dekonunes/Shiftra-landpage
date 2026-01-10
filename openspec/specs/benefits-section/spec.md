@@ -5,7 +5,6 @@ TBD - created by archiving change implement-landing-core-sections. Update Purpos
 ## Requirements
 ### Requirement: The BenefitsSection component SHALL render outcome cards with animated number statistics
 
-**Description:**
 The BenefitsSection component MUST render 4 outcome cards that showcase concrete benefits with animated statistics. Each card MUST display an icon, a headline value (e.g., "5 hours/week", "80%", "Zero"), and a description. The number values MUST animate from 0 to the target value when the card scrolls into view using GSAP number interpolation, and the animation MUST respect user motion preferences.
 
 **Context:**
@@ -53,7 +52,6 @@ The BenefitsSection component MUST render 4 outcome cards that showcase concrete
 
 ### Requirement: The BenefitsSection component SHALL display concrete outcome statistics sourced from i18n translations
 
-**Description:**
 The BenefitsSection MUST render 4 concrete outcome benefits sourced from i18n JSON files. Each benefit MUST include a numeric value (e.g., "5 hours/week", "80%", "Zero", "Get paid faster") and a description that communicates the business value to users.
 
 **Context:**
@@ -95,7 +93,6 @@ The BenefitsSection MUST render 4 concrete outcome benefits sourced from i18n JS
 
 ### Requirement: The useCountUpAnimation hook SHALL animate numbers from 0 to target value using GSAP interpolation
 
-**Description:**
 The useCountUpAnimation custom hook MUST provide a reusable abstraction for animating numbers from 0 to a target value when the element scrolls into view. The hook MUST support integer values, decimal values, and optional suffixes (e.g., "%", " hours"). The hook MUST use GSAP's `innerText` interpolation and ScrollTrigger for viewport detection.
 
 **Context:**
@@ -144,7 +141,6 @@ The useCountUpAnimation custom hook MUST provide a reusable abstraction for anim
 
 ### Requirement: The BenefitCard component SHALL render a reusable card with icon, animated number, and description
 
-**Description:**
 The BenefitCard component MUST be a reusable component that renders a single benefit card with a Lucide icon, an animated number value, and a description. The card MUST use the shadcn/ui Card component as its base and MUST adapt to the current theme (light/dark mode) using semantic color classes.
 
 **Context:**
@@ -185,7 +181,6 @@ The BenefitCard component MUST be a reusable component that renders a single ben
 
 ### Requirement: The BenefitsSection component SHALL maintain responsive grid layout across all breakpoints
 
-**Description:**
 The BenefitsSection MUST adapt its layout responsively across mobile, tablet, and desktop breakpoints using a mobile-first approach. Benefit cards MUST stack vertically on mobile, display in 2 columns on tablet, and display in 4 columns on desktop with consistent spacing.
 
 **Context:**

@@ -38,6 +38,22 @@
       "avoid unknown employees and unclear jobs?"
     ]
   },
+  "whatsappShiftFlow": {
+    "title": "Create a shift in WhatsApp, share it in seconds",
+    "description": "Send a single message to the Shiftra bot and get a ready-to-share post with the acceptance link.",
+    "chatTitle": "WhatsApp shift flow",
+    "participants": {
+      "boss": "Boss",
+      "bot": "Shiftra bot"
+    },
+    "messages": {
+      "bossInitial": "Friday 6–10 pm, Barista, Bondi, 35/h, need 3 people",
+      "botReview": "Shift: Fri 6-10pm | Role: Barista | Location: Bondi | Rate: 35/h | Spots: 3\nReply 1 if correct or 2 if need edit it.",
+      "bossConfirm": "1",
+      "botSharePrompt": "Share this message on groups. Or message like this.",
+      "botFinal": "Shift: Fri 6-10pm - Barista - Bondi - $35/h - 3 spots\nAccept: https://shiftra.com/s/gF37lm\nReply ASAP - first come, first served."
+    }
+  },
   "howItWorks": {
     "title": "How Shiftra works",
     "steps": [

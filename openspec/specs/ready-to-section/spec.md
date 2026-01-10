@@ -5,7 +5,6 @@ TBD - created by archiving change implement-landing-hero-phase. Update Purpose a
 ## Requirements
 ### Requirement: The ReadyToSection component SHALL render with CSS-driven phrase animation
 
-**Description:**
 The ReadyToSection component MUST render a section with static text "Are you ready to" followed by animated phrases that drop in from bottom, display, then drop out from top. The animation MUST be pure CSS (no JavaScript) and cycle through 8 phrases indefinitely.
 
 **Context:**
@@ -49,7 +48,6 @@ The ReadyToSection component MUST render a section with static text "Are you rea
 
 ### Requirement: The ReadyToSection component SHALL use staggered animation timing with nth-child delays
 
-**Description:**
 Each phrase MUST animate with a staggered delay using `nth-child` CSS selectors to create a continuous, seamless rotation effect. The timing MUST ensure only one phrase is visible at a time.
 
 **Context:**
@@ -91,7 +89,6 @@ Each phrase MUST animate with a staggered delay using `nth-child` CSS selectors 
 
 ### Requirement: The ReadyToSection component SHALL implement mobile-first responsive design
 
-**Description:**
 The ReadyToSection MUST implement mobile-first responsive design with progressive text scaling and container height adjustments across breakpoints.
 
 **Context:**
@@ -133,7 +130,6 @@ The ReadyToSection MUST implement mobile-first responsive design with progressiv
 
 ### Requirement: The ReadyToSection component SHALL integrate with i18n system for multi-language support
 
-**Description:**
 All text content in the ReadyToSection MUST be sourced from i18n JSON files using the `useTranslation` hook. The component MUST support switching between English, Portuguese (pt-BR), and Spanish without remounting.
 
 **Context:**
@@ -175,7 +171,6 @@ All text content in the ReadyToSection MUST be sourced from i18n JSON files usin
 
 ### Requirement: The ReadyToSection component SHALL respect prefers-reduced-motion for accessibility
 
-**Description:**
 When the user has enabled "reduce motion" in their system preferences, the section MUST display a static phrase instead of animating. This ensures accessibility compliance with WCAG 2.1 Level AAA (Guideline 2.3.3).
 
 **Context:**

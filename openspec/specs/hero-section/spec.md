@@ -5,7 +5,6 @@ TBD - created by archiving change implement-landing-hero-phase. Update Purpose a
 ## Requirements
 ### Requirement: The HeroSection component SHALL render a full-viewport hero section with animated typewriter headline
 
-**Description:**
 The HeroSection component MUST render a full-viewport hero section with an animated headline that displays "No more {rotating phrase}" where the phrase types in character-by-character, holds for 1.5 seconds, then deletes and cycles to the next phrase. The animation MUST be powered by GSAP and respect user motion preferences.
 
 **Context:**
@@ -52,7 +51,6 @@ The HeroSection component MUST render a full-viewport hero section with an anima
 
 ### Requirement: The HeroSection component SHALL display theme-aware phrase colors that meet WCAG AA contrast standards
 
-**Description:**
 Each rotating phrase MUST display in a specific color that provides WCAG AA contrast (4.5:1 for normal text) in both light and dark themes. The phrase colors MUST match the design specification and adapt dynamically when the user toggles the theme.
 
 **Context:**
@@ -97,7 +95,6 @@ Each rotating phrase MUST display in a specific color that provides WCAG AA cont
 
 ### Requirement: The HeroSection component SHALL display CTAs and subheadline with responsive layout
 
-**Description:**
 The HeroSection MUST display a subheadline below the animated headline, followed by primary and secondary call-to-action buttons. On mobile, buttons MUST stack vertically; on desktop, they MUST display horizontally.
 
 **Context:**
@@ -145,7 +142,6 @@ The HeroSection MUST display a subheadline below the animated headline, followed
 
 ### Requirement: The HeroSection component SHALL implement mobile-first responsive design across all breakpoints
 
-**Description:**
 The HeroSection MUST implement mobile-first responsive design with progressive enhancement for larger screens. Text sizing, spacing, and layout MUST adapt smoothly across all breakpoints.
 
 **Context:**
@@ -182,7 +178,6 @@ The HeroSection MUST implement mobile-first responsive design with progressive e
 
 ### Requirement: The HeroSection component SHALL integrate with i18n system for multi-language support
 
-**Description:**
 All text content in the HeroSection MUST be sourced from i18n JSON files using the `useTranslation` hook. The component MUST support switching between English, Portuguese (pt-BR), and Spanish without remounting.
 
 **Context:**

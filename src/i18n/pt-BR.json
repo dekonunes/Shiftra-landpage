@@ -38,6 +38,22 @@
       "evitar funcionários desconhecidos e trabalhos pouco claros?"
     ]
   },
+  "whatsappShiftFlow": {
+    "title": "Crie um shift no WhatsApp e compartilhe em segundos",
+    "description": "Envie uma mensagem ao bot da Shiftra e receba um texto pronto para compartilhar com o link de aceite.",
+    "chatTitle": "Fluxo de shift no WhatsApp",
+    "participants": {
+      "boss": "Chefe",
+      "bot": "Bot da Shiftra"
+    },
+    "messages": {
+      "bossInitial": "Sexta 6–10 pm, Barista, Bondi, 35/h, preciso de 3 pessoas",
+      "botReview": "Shift: Sex 6-10pm | Função: Barista | Local: Bondi | Valor: 35/h | Vagas: 3\nResponda 1 se estiver correto ou 2 se precisar editar.",
+      "bossConfirm": "1",
+      "botSharePrompt": "Compartilhe esta mensagem em grupos. Ou envie algo assim.",
+      "botFinal": "Shift: Sex 6-10pm - Barista - Bondi - $35/h - 3 vagas\nAceite: https://shiftra.com/s/gF37lm\nResponda ASAP - por ordem de chegada."
+    }
+  },
   "howItWorks": {
     "title": "Como funciona o Shiftra",
     "steps": [

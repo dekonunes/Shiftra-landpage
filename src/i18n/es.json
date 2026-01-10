@@ -38,6 +38,22 @@
       "evitar empleados desconocidos y trabajos poco claros?"
     ]
   },
+  "whatsappShiftFlow": {
+    "title": "Crea un turno en WhatsApp y compártelo en segundos",
+    "description": "Envía un solo mensaje al bot de Shiftra y recibe un texto listo para compartir con el enlace de aceptación.",
+    "chatTitle": "Flujo de turnos en WhatsApp",
+    "participants": {
+      "boss": "Jefe",
+      "bot": "Bot de Shiftra"
+    },
+    "messages": {
+      "bossInitial": "Viernes 6–10 pm, Barista, Bondi, 35/h, necesito 3 personas",
+      "botReview": "Turno: Vie 6-10pm | Rol: Barista | Ubicación: Bondi | Tarifa: 35/h | Cupos: 3\nResponde 1 si es correcto o 2 si necesitas editarlo.",
+      "bossConfirm": "1",
+      "botSharePrompt": "Comparte este mensaje en grupos. O envía algo así.",
+      "botFinal": "Turno: Vie 6-10pm - Barista - Bondi - $35/h - 3 cupos\nAceptar: https://shiftra.com/s/gF37lm\nResponde ASAP - por orden de llegada."
+    }
+  },
   "howItWorks": {
     "title": "Cómo funciona Shiftra",
     "steps": [
