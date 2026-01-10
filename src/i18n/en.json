@@ -51,7 +51,8 @@
       "botReview": "Shift: Fri 6-10pm | Role: Barista | Location: Bondi | Rate: 35/h | Spots: 3\nReply 1 if correct or 2 if need edit it.",
       "bossConfirm": "1",
       "botSharePrompt": "Share this message on groups. Or message like this.",
-      "botFinal": "Shift: Fri 6-10pm - Barista - Bondi - $35/h - 3 spots\nAccept: https://shiftra.com/s/gF37lm\nReply ASAP - first come, first served."
+      "botFinal": "Shift: Fri 6-10pm - Barista - Bondi - $35/h - 3 spots\nAccept: https://shiftra.com/s/gF37lm\nReply ASAP - first come, first served.",
+      "botGroup": "Shift filled. Found:\nAline - 0453 094 302\nGustave - 0467 945 435\nClea - 0453 037 483\nTap the button to create a WhatsApp group with the team."
     }
   },
   "howItWorks": {

@@ -51,7 +51,8 @@
       "botReview": "Shift: Sex 6-10pm | Função: Barista | Local: Bondi | Valor: 35/h | Vagas: 3\nResponda 1 se estiver correto ou 2 se precisar editar.",
       "bossConfirm": "1",
       "botSharePrompt": "Compartilhe esta mensagem em grupos. Ou envie algo assim.",
-      "botFinal": "Shift: Sex 6-10pm - Barista - Bondi - $35/h - 3 vagas\nAceite: https://shiftra.com/s/gF37lm\nResponda ASAP - por ordem de chegada."
+      "botFinal": "Shift: Sex 6-10pm - Barista - Bondi - $35/h - 3 vagas\nAceite: https://shiftra.com/s/gF37lm\nResponda ASAP - por ordem de chegada.",
+      "botGroup": "Shift preenchido. Encontramos:\nAline - 0453 094 302\nGustave - 0467 945 435\nClea - 0453 037 483\nToque no bot\u00e3o para criar um grupo no WhatsApp com a equipe."
     }
   },
   "howItWorks": {

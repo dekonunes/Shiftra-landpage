@@ -5,6 +5,7 @@ interface FlowMessage {
   sender: "boss" | "bot";
   label: string;
   text: string;
+  highlights?: string[];
 }
 
 const MESSAGE_ANIMATION_MS = 2500;
@@ -28,6 +29,7 @@ export default function WhatsAppShiftFlowSection() {
   const bossConfirmMessage = t("whatsappShiftFlow.messages.bossConfirm");
   const botSharePromptMessage = t("whatsappShiftFlow.messages.botSharePrompt");
   const botFinalMessage = t("whatsappShiftFlow.messages.botFinal");
+  const botGroupMessage = t("whatsappShiftFlow.messages.botGroup");
 
   const messages = useMemo<FlowMessage[]>(
     () => [
@@ -56,6 +58,12 @@ export default function WhatsAppShiftFlowSection() {
         label: botLabel,
         text: botFinalMessage,
       },
+      {
+        sender: "bot",
+        label: botLabel,
+        text: botGroupMessage,
+        highlights: ["Aline", "Gustave", "Clea"],
+      },
     ],
     [
       bossLabel,
@@ -65,8 +73,51 @@ export default function WhatsAppShiftFlowSection() {
       bossConfirmMessage,
       botSharePromptMessage,
       botFinalMessage,
+      botGroupMessage,
     ]
   );
+
+  const renderMessageText = (text: string, highlights?: string[]) => {
+    if (!highlights || highlights.length === 0) {
+      return text;
+    }
+
+    const nodes: Array<string | JSX.Element> = [];
+    let cursor = 0;
+    let keyIndex = 0;
+
+    while (cursor < text.length) {
+      let nextIndex = -1;
+      let nextHighlight = "";
+
+      for (const highlight of highlights) {
+        const index = text.indexOf(highlight, cursor);
+        if (index !== -1 && (nextIndex === -1 || index < nextIndex)) {
+          nextIndex = index;
+          nextHighlight = highlight;
+        }
+      }
+
+      if (nextIndex === -1) {
+        nodes.push(text.slice(cursor));
+        break;
+      }
+
+      if (nextIndex > cursor) {
+        nodes.push(text.slice(cursor, nextIndex));
+      }
+
+      nodes.push(
+        <strong key={`highlight-${keyIndex}`} className="font-semibold">
+          {nextHighlight}
+        </strong>
+      );
+      keyIndex += 1;
+      cursor = nextIndex + nextHighlight.length;
+    }
+
+    return nodes;
+  };
 
   const [typedMessages, setTypedMessages] = useState<string[]>(() =>
     messages.map(() => "")
@@ -245,7 +296,9 @@ export default function WhatsAppShiftFlowSection() {
                         ))}
                       </div>
                     ) : (
-                      <p className="whitespace-pre-line">{messageText}</p>
+                      <p className="whitespace-pre-line">
+                        {renderMessageText(messageText, message.highlights)}
+                      </p>
                     )}
                   </div>
                 </div>

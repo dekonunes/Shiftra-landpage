@@ -51,7 +51,8 @@
       "botReview": "Turno: Vie 6-10pm | Rol: Barista | Ubicación: Bondi | Tarifa: 35/h | Cupos: 3\nResponde 1 si es correcto o 2 si necesitas editarlo.",
       "bossConfirm": "1",
       "botSharePrompt": "Comparte este mensaje en grupos. O envía algo así.",
-      "botFinal": "Turno: Vie 6-10pm - Barista - Bondi - $35/h - 3 cupos\nAceptar: https://shiftra.com/s/gF37lm\nResponde ASAP - por orden de llegada."
+      "botFinal": "Turno: Vie 6-10pm - Barista - Bondi - $35/h - 3 cupos\nAceptar: https://shiftra.com/s/gF37lm\nResponde ASAP - por orden de llegada.",
+      "botGroup": "Turno completo. Encontramos a:\nAline - 0453 094 302\nGustave - 0467 945 435\nClea - 0453 037 483\nToca el bot\u00f3n para crear un grupo de WhatsApp con el equipo."
     }
   },
   "howItWorks": {
