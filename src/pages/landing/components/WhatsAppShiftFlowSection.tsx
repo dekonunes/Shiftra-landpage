@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 
 interface FlowMessage {
@@ -77,12 +77,15 @@ export default function WhatsAppShiftFlowSection() {
     ]
   );
 
-  const renderMessageText = (text: string, highlights?: string[]) => {
+  const renderMessageText = (
+    text: string,
+    highlights?: string[]
+  ): ReactNode => {
     if (!highlights || highlights.length === 0) {
       return text;
     }
 
-    const nodes: Array<string | JSX.Element> = [];
+    const nodes: ReactNode[] = [];
     let cursor = 0;
     let keyIndex = 0;
 
@@ -199,7 +202,11 @@ export default function WhatsAppShiftFlowSection() {
           0
         );
         const charDelay = messageDuration / Math.max(messageText.length, 1);
-        for (let charIndex = 0; charIndex < messageText.length; charIndex += 1) {
+        for (
+          let charIndex = 0;
+          charIndex < messageText.length;
+          charIndex += 1
+        ) {
           if (isCancelled) return;
           await delay(charDelay);
           const slice = messageText.slice(0, charIndex + 1);
