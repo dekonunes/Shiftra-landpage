@@ -6,6 +6,7 @@ interface FlowMessage {
   label: string;
   text: string;
   highlights?: string[];
+  linkHighlights?: string[];
 }
 
 const MESSAGE_ANIMATION_MS = 2500;
@@ -63,6 +64,7 @@ export default function WhatsAppShiftFlowSection() {
         sender: "bot",
         label: botLabel,
         text: botFinalMessage,
+        linkHighlights: ["https://shiftra.com/s/gF37lm"],
       },
       {
         sender: "bot",
@@ -86,9 +88,15 @@ export default function WhatsAppShiftFlowSection() {
 
   const renderMessageText = (
     text: string,
-    highlights?: string[]
+    highlights?: string[],
+    linkHighlights?: string[]
   ): ReactNode => {
-    if (!highlights || highlights.length === 0) {
+    const allHighlights = [
+      ...(highlights || []).map((h) => ({ text: h, type: "bold" as const })),
+      ...(linkHighlights || []).map((h) => ({ text: h, type: "link" as const })),
+    ];
+
+    if (allHighlights.length === 0) {
       return text;
     }
 
@@ -98,17 +106,17 @@ export default function WhatsAppShiftFlowSection() {
 
     while (cursor < text.length) {
       let nextIndex = -1;
-      let nextHighlight = "";
+      let nextHighlight: { text: string; type: "bold" | "link" } | null = null;
 
-      for (const highlight of highlights) {
-        const index = text.indexOf(highlight, cursor);
+      for (const highlight of allHighlights) {
+        const index = text.indexOf(highlight.text, cursor);
         if (index !== -1 && (nextIndex === -1 || index < nextIndex)) {
           nextIndex = index;
           nextHighlight = highlight;
         }
       }
 
-      if (nextIndex === -1) {
+      if (nextIndex === -1 || !nextHighlight) {
         nodes.push(text.slice(cursor));
         break;
       }
@@ -117,13 +125,28 @@ export default function WhatsAppShiftFlowSection() {
         nodes.push(text.slice(cursor, nextIndex));
       }
 
-      nodes.push(
-        <strong key={`highlight-${keyIndex}`} className="font-semibold">
-          {nextHighlight}
-        </strong>
-      );
+      if (nextHighlight.type === "link") {
+        nodes.push(
+          <a
+            key={`link-${keyIndex}`}
+            href="https://invoicemanager-364c6.web.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:text-blue-300 underline font-medium"
+          >
+            {nextHighlight.text}
+          </a>
+        );
+      } else {
+        nodes.push(
+          <strong key={`highlight-${keyIndex}`} className="font-semibold">
+            {nextHighlight.text}
+          </strong>
+        );
+      }
+
       keyIndex += 1;
-      cursor = nextIndex + nextHighlight.length;
+      cursor = nextIndex + nextHighlight.text.length;
     }
 
     return nodes;
@@ -311,7 +334,11 @@ export default function WhatsAppShiftFlowSection() {
                       </div>
                     ) : (
                       <p className="whitespace-pre-line">
-                        {renderMessageText(messageText, message.highlights)}
+                        {renderMessageText(
+                          messageText,
+                          message.highlights,
+                          message.linkHighlights
+                        )}
                       </p>
                     )}
                   </div>
