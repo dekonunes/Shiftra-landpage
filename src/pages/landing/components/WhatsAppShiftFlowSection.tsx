@@ -25,6 +25,7 @@ export default function WhatsAppShiftFlowSection() {
   const bossLabel = t("whatsappShiftFlow.participants.boss");
   const botLabel = t("whatsappShiftFlow.participants.bot");
   const bossMessage = t("whatsappShiftFlow.messages.bossInitial");
+  const botWeatherMessage = t("whatsappShiftFlow.messages.botWeather");
   const botReviewMessage = t("whatsappShiftFlow.messages.botReview");
   const bossConfirmMessage = t("whatsappShiftFlow.messages.bossConfirm");
   const botSharePromptMessage = t("whatsappShiftFlow.messages.botSharePrompt");
@@ -37,6 +38,11 @@ export default function WhatsAppShiftFlowSection() {
         sender: "boss",
         label: bossLabel,
         text: bossMessage,
+      },
+      {
+        sender: "bot",
+        label: botLabel,
+        text: botWeatherMessage,
       },
       {
         sender: "bot",
@@ -69,6 +75,7 @@ export default function WhatsAppShiftFlowSection() {
       bossLabel,
       botLabel,
       bossMessage,
+      botWeatherMessage,
       botReviewMessage,
       bossConfirmMessage,
       botSharePromptMessage,

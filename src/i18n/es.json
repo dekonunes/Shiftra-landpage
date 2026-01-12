@@ -48,6 +48,7 @@
     },
     "messages": {
       "bossInitial": "Viernes 6–10 pm, Barista, Bondi, 35/h, necesito 3 personas",
+      "botWeather": "🌧️ Alerta meteorológica: Se espera lluvia en Bondi alrededor de las 17h",
       "botReview": "Turno: Vie 6-10pm | Rol: Barista | Ubicación: Bondi | Tarifa: 35/h | Cupos: 3\nResponde 1 si es correcto o 2 si necesitas editarlo.",
       "bossConfirm": "1",
       "botSharePrompt": "Comparte este mensaje en grupos. O envía algo así.",
