@@ -115,7 +115,9 @@ export default function Navigation() {
 
             {/* CTA Button */}
             <a
-              href="#"
+              href="https://invoicemanager-364c6.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden sm:inline-block px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
             >
               {t('nav.getStarted')}
